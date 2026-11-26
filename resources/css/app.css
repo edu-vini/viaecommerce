@@ -1,0 +1,83 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../views/**/*.blade.php';
+
+:root {
+    --brand-primary: #2563eb;       /* Royal Blue */
+    --brand-primary-hover: #1d4ed8;
+    --brand-primary-light: #eff6ff;
+    --brand-secondary: #0f172a;     /* Deep Slate */
+    --brand-accent: #f59e0b;        /* Warm Gold */
+    --brand-accent-hover: #d97706;
+    --brand-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+[data-theme="emerald"] {
+    --brand-primary: #059669;
+    --brand-primary-hover: #047857;
+    --brand-primary-light: #ecfdf5;
+    --brand-secondary: #064e3b;
+    --brand-accent: #f59e0b;
+    --brand-accent-hover: #d97706;
+    --brand-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
+}
+
+[data-theme="purple"] {
+    --brand-primary: #7c3aed;
+    --brand-primary-hover: #6d28d9;
+    --brand-primary-light: #f5f3ff;
+    --brand-secondary: #4c1d95;
+    --brand-accent: #ec4899;
+    --brand-accent-hover: #db2777;
+    --brand-gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+}
+
+[data-theme="sunset"] {
+    --brand-primary: #ea580c;
+    --brand-primary-hover: #c2410c;
+    --brand-primary-light: #fff7ed;
+    --brand-secondary: #7c2d12;
+    --brand-accent: #eab308;
+    --brand-accent-hover: #ca8a04;
+    --brand-gradient: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+}
+
+/* Custom Utilities for Theme Variables */
+.bg-brand {
+    background-color: var(--brand-primary);
+}
+.bg-brand-hover:hover {
+    background-color: var(--brand-primary-hover);
+}
+.text-brand {
+    color: var(--brand-primary);
+}
+.border-brand {
+    border-color: var(--brand-primary);
+}
+.bg-brand-light {
+    background-color: var(--brand-primary-light);
+}
+.bg-brand-gradient {
+    background: var(--brand-gradient);
+}
+.focus-ring-brand:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+}
+
+/* Smooth Horizontal Scrollbar for Carousels */
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+/* Backdrop blur support */
+.drawer-backdrop {
+    backdrop-filter: blur(4px);
+}
