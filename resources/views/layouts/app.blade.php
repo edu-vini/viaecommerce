@@ -7,6 +7,7 @@
 
     <title>{{ $title ?? 'Elisie - Moderna. Elegante. Modesta' }}</title>
     <meta name="description" content="Elisie Moda Feminina: Moderna, elegante e modesta. Vestidos midi exclusivos, alfaiataria fina e conjuntos atemporais.">
+    <link rel="icon" type="image/png" href="{{ asset('images/elisie-logo-bordeaux.png') }}">
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     @vite(['resources/css/app.css', 'resources/js/app.js'])

@@ -32,12 +32,11 @@
         <div class="flex items-center justify-between gap-4">
 
             {{-- Brand / Elisie Logo --}}
+            {{-- Brand Logo (Official Elisie Lettering) --}}
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="group flex flex-col items-start">
-                    <span class="font-script text-3xl sm:text-4xl text-brand group-hover:opacity-90 transition leading-none py-1">
-                        Elisie
-                    </span>
-                    <span class="text-[9px] tracking-[0.25em] text-stone-500 font-medium uppercase">
+                    <img src="{{ asset('images/elisie-logo-bordeaux.png') }}" alt="Elisie" class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]">
+                    <span class="text-[8px] sm:text-[9px] tracking-[0.25em] text-stone-500 font-medium uppercase mt-0.5">
                         Moderna • Elegante • Modesta
                     </span>
                 </a>

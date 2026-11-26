@@ -17,10 +17,8 @@
 
             <div class="relative z-20 px-6 sm:px-12 lg:px-16 py-16 sm:py-24 max-w-xl">
                 <div class="mb-4">
-                    <span class="font-script text-5xl sm:text-6xl text-white block leading-none">
-                        Elisie
-                    </span>
-                    <span class="text-[10px] tracking-[0.35em] uppercase text-rose-200/90 font-medium block mt-1">
+                    <img src="{{ asset('images/elisie-logo-white.png') }}" alt="Elisie" class="h-14 sm:h-16 w-auto object-contain">
+                    <span class="text-[10px] tracking-[0.35em] uppercase text-rose-200/90 font-medium block mt-1.5">
                         Moderna • Elegante • Modesta
                     </span>
                 </div>
@@ -110,8 +108,8 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FAF8F5] p-8 sm:p-12 border border-stone-200">
             <div class="lg:col-span-7 space-y-4">
-                <div class="flex items-center gap-2">
-                    <span class="font-script text-3xl text-brand">Elisie</span>
+                <div class="flex items-center gap-3">
+                    <img src="{{ asset('images/elisie-logo-bordeaux.png') }}" alt="Elisie" class="h-8 sm:h-9 w-auto object-contain">
                     <span class="text-stone-300">|</span>
                     <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-stone-500">Conceito &amp; Propósito</span>
                 </div>

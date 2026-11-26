@@ -51,9 +51,9 @@
 
             {{-- Column 1: Brand Info --}}
             <div class="lg:col-span-2 space-y-4">
-                <div>
-                    <span class="font-script text-4xl text-white block leading-none">Elisie</span>
-                    <span class="text-[9px] tracking-[0.25em] text-rose-300 font-semibold uppercase block mt-1">Moderna • Elegante • Modesta</span>
+                <div class="flex flex-col items-start">
+                    <img src="{{ asset('images/elisie-logo-white.png') }}" alt="Elisie" class="h-10 sm:h-12 w-auto object-contain">
+                    <span class="text-[9px] tracking-[0.25em] text-rose-300 font-semibold uppercase block mt-1.5">Moderna • Elegante • Modesta</span>
                 </div>
                 <p class="text-xs text-stone-400 max-w-sm leading-relaxed">
                     Marca brasileira dedicada a exaltar a beleza, a virtude e a identidade da mulher contemporânea através de peças sofisticadas, vestidos midi nobres e acabamentos artesanais de alfaiataria.
