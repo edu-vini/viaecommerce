@@ -23,7 +23,7 @@ class EcommerceDataService
                 'icon' => 'briefcase',
                 'description' => 'Peças estruturadas com forro acetinado e cortes contemporâneos',
                 'count' => 18,
-                'featured_image' => 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=500&q=75',
+                'featured_image' => 'https://images.unsplash.com/photo-1548624149-f9b1859aa9d0?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 3,
@@ -59,7 +59,7 @@ class EcommerceDataService
                 'icon' => 'sun',
                 'description' => 'Chiffon, seda e algodão egípcio com golas laço e botões delicados',
                 'count' => 15,
-                'featured_image' => 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=500&q=75',
+                'featured_image' => 'https://images.unsplash.com/photo-1598554747436-c9293d6a588f?auto=format&fit=crop&w=600&q=80',
             ],
         ];
     }

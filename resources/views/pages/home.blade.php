@@ -72,14 +72,20 @@
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5">
             @foreach ($categories as $cat)
                 <a href="{{ route('catalog.category', ['categorySlug' => $cat['slug']]) }}"
-                   class="group bg-white p-3 border border-stone-200/80 hover:border-brand shadow-xs hover:shadow-lg transition-all text-center flex flex-col items-center">
-                    <div class="w-20 h-28 sm:w-24 sm:h-32 overflow-hidden mb-3 bg-[#FAF8F5] group-hover:scale-105 transition-transform duration-500">
-                        <img src="{{ $cat['featured_image'] }}" alt="{{ $cat['name'] }}" loading="lazy" decoding="async" class="w-full h-full object-cover">
+                   class="group relative aspect-[3/4] overflow-hidden border border-stone-200/80 hover:border-brand shadow-xs hover:shadow-xl transition-all duration-300 block">
+                    <img src="{{ $cat['featured_image'] }}"
+                         alt="{{ $cat['name'] }}"
+                         loading="lazy"
+                         decoding="async"
+                         class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-black/30 to-transparent flex flex-col justify-end p-3.5 text-center transition-all group-hover:from-[#720403]/95 group-hover:via-[#720403]/40">
+                        <h3 class="font-serif text-xs sm:text-sm font-semibold text-white tracking-wide leading-tight group-hover:text-rose-100 transition">
+                            {{ $cat['name'] }}
+                        </h3>
+                        <span class="text-[9px] text-stone-300 group-hover:text-rose-200 mt-1 tracking-widest uppercase font-light">
+                            {{ $cat['count'] }} modelos
+                        </span>
                     </div>
-                    <h3 class="font-serif text-xs font-semibold text-stone-800 group-hover:text-brand transition line-clamp-1">
-                        {{ $cat['name'] }}
-                    </h3>
-                    <span class="text-[10px] text-stone-400 mt-0.5 tracking-wider uppercase">{{ $cat['count'] }} modelos</span>
                 </a>
             @endforeach
         </div>
