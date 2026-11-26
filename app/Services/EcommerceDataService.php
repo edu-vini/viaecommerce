@@ -14,7 +14,7 @@ class EcommerceDataService
                 'icon' => 'sparkles',
                 'description' => 'Modelagens evasê, fluidas e estruturadas com caimento impecável',
                 'count' => 24,
-                'featured_image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=500&q=75',
             ],
             [
                 'id' => 2,
@@ -23,7 +23,7 @@ class EcommerceDataService
                 'icon' => 'briefcase',
                 'description' => 'Peças estruturadas com forro acetinado e cortes contemporâneos',
                 'count' => 18,
-                'featured_image' => 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=500&q=75',
             ],
             [
                 'id' => 3,
@@ -32,7 +32,7 @@ class EcommerceDataService
                 'icon' => 'layers',
                 'description' => 'Combinações sofisticadas de saias, calças e blusas em perfeita harmonia',
                 'count' => 16,
-                'featured_image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=500&q=75',
             ],
             [
                 'id' => 4,
@@ -41,7 +41,7 @@ class EcommerceDataService
                 'icon' => 'heart',
                 'description' => 'Elegância sublime para ocasiões especiais e celebrações marcantes',
                 'count' => 12,
-                'featured_image' => 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=500&q=75',
             ],
             [
                 'id' => 5,
@@ -50,7 +50,7 @@ class EcommerceDataService
                 'icon' => 'bookmark',
                 'description' => 'Modelagens plissadas, evasê e chemises em tecidos nobres e atemporais',
                 'count' => 20,
-                'featured_image' => 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=500&q=75',
             ],
             [
                 'id' => 6,
@@ -59,7 +59,7 @@ class EcommerceDataService
                 'icon' => 'sun',
                 'description' => 'Chiffon, seda e algodão egípcio com golas laço e botões delicados',
                 'count' => 15,
-                'featured_image' => 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80',
+                'featured_image' => 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=500&q=75',
             ],
         ];
     }
@@ -89,9 +89,9 @@ class EcommerceDataService
                 'stock' => 15,
                 'model_info' => 'A modelo mede 1,73m, tem 86cm de busto, 68cm de cintura e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Off-White Linho', 'hex' => '#F4EFEB'],
@@ -146,9 +146,9 @@ class EcommerceDataService
                 'stock' => 12,
                 'model_info' => 'A modelo mede 1,74m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1548624149-f9b1859aa9d0?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1548624149-f9b1859aa9d0?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Fendi Nude', 'hex' => '#C5B9AC'],
@@ -200,9 +200,9 @@ class EcommerceDataService
                 'stock' => 8,
                 'model_info' => 'A modelo mede 1,76m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Verde Esmeralda', 'hex' => '#1F4738'],
@@ -253,9 +253,9 @@ class EcommerceDataService
                 'stock' => 18,
                 'model_info' => 'A modelo mede 1,72m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Bege Areia Natural', 'hex' => '#D8CCBD'],
@@ -307,9 +307,9 @@ class EcommerceDataService
                 'stock' => 22,
                 'model_info' => 'A modelo mede 1,71m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Champanhe Dourado', 'hex' => '#E6D7C3'],
@@ -360,9 +360,9 @@ class EcommerceDataService
                 'stock' => 10,
                 'model_info' => 'A modelo mede 1,73m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Off-White Puro', 'hex' => '#FAF8F5'],
@@ -413,9 +413,9 @@ class EcommerceDataService
                 'stock' => 14,
                 'model_info' => 'A modelo mede 1,73m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Fundo Preto com Poá Branco', 'hex' => '#1A1A1A'],
@@ -465,9 +465,9 @@ class EcommerceDataService
                 'stock' => 9,
                 'model_info' => 'A modelo mede 1,75m e veste tamanho P.',
                 'images' => [
-                    'https://images.unsplash.com/photo-1548624149-f9b1859aa9d0?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=1000&q=80',
-                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80',
+                    'https://images.unsplash.com/photo-1548624149-f9b1859aa9d0?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=700&q=75',
+                    'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=700&q=75',
                 ],
                 'colors' => [
                     ['name' => 'Tweed Areia com Dourado', 'hex' => '#D5C7B5'],

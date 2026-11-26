@@ -36,7 +36,7 @@
         {{-- Mobile Filter Trigger & Sort Dropdown --}}
         <div class="flex items-center gap-3">
             <button @click="mobileFilterOpen = !mobileFilterOpen"
-                    class="lg:hidden flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-stone-300 text-xs font-medium text-stone-700 hover:bg-stone-50 shadow-xs uppercase tracking-wider">
+                    class="lg:hidden flex items-center gap-2 px-4 py-2 bg-white border border-stone-300 text-xs font-medium text-stone-700 hover:bg-stone-50 shadow-xs uppercase tracking-wider">
                 <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"/></svg>
                 <span>Filtros</span>
             </button>
@@ -51,7 +51,7 @@
                 <select name="ordenacao"
                         id="ordenacao"
                         onchange="this.form.submit()"
-                        class="text-xs bg-white border border-stone-300 rounded-full px-4 py-2 text-stone-800 focus:outline-none focus:border-brand shadow-xs">
+                        class="text-xs bg-white border border-stone-300 px-4 py-2 text-stone-800 focus:outline-none focus:border-brand shadow-xs">
                     <option value="relevancia" {{ $sort === 'relevancia' ? 'selected' : '' }}>Mais Relevantes</option>
                     <option value="menor_preco" {{ $sort === 'menor_preco' ? 'selected' : '' }}>Menor Preço</option>
                     <option value="maior_preco" {{ $sort === 'maior_preco' ? 'selected' : '' }}>Maior Preço</option>
@@ -67,7 +67,7 @@
 
         {{-- Filters Sidebar (Desktop) --}}
         <aside class="hidden lg:block space-y-6">
-            <div class="bg-white rounded-2xl p-6 border border-stone-200/80 shadow-xs space-y-6">
+            <div class="bg-white p-6 border border-stone-200/80 shadow-xs space-y-6">
 
                 {{-- Filter Header --}}
                 <div class="flex items-center justify-between pb-3 border-b border-stone-100">
@@ -88,7 +88,7 @@
                     <ul class="space-y-1.5 text-xs">
                         <li>
                             <a href="{{ route('catalog.index', array_filter(['busca' => $search, 'preco_min' => $priceMin, 'preco_max' => $priceMax, 'ordenacao' => $sort])) }}"
-                               class="flex items-center justify-between p-2 rounded-lg transition {{ !$selectedCategory ? 'bg-brand text-white font-bold' : 'text-stone-700 hover:bg-[#FAF8F5]' }}">
+                               class="flex items-center justify-between p-2 transition {{ !$selectedCategory ? 'bg-brand text-white font-bold' : 'text-stone-700 hover:bg-[#FAF8F5]' }}">
                                 <span>Todas as Peças</span>
                                 <span class="text-[10px] {{ !$selectedCategory ? 'text-white/80' : 'text-stone-400' }}">Todos</span>
                             </a>
@@ -96,7 +96,7 @@
                         @foreach ($categories as $cat)
                             <li>
                                 <a href="{{ route('catalog.category', ['categorySlug' => $cat['slug'], 'busca' => $search, 'preco_min' => $priceMin, 'preco_max' => $priceMax, 'ordenacao' => $sort]) }}"
-                                   class="flex items-center justify-between p-2 rounded-lg transition {{ $selectedCategory === $cat['slug'] ? 'bg-brand text-white font-bold' : 'text-stone-700 hover:bg-[#FAF8F5]' }}">
+                                   class="flex items-center justify-between p-2 transition {{ $selectedCategory === $cat['slug'] ? 'bg-brand text-white font-bold' : 'text-stone-700 hover:bg-[#FAF8F5]' }}">
                                     <span>{{ $cat['name'] }}</span>
                                     <span class="text-[10px] {{ $selectedCategory === $cat['slug'] ? 'text-white/80' : 'text-stone-400' }}">({{ $cat['count'] }})</span>
                                 </a>
@@ -116,15 +116,15 @@
                         <div class="grid grid-cols-2 gap-2">
                             <div>
                                 <label class="text-[10px] text-stone-400 block mb-1">Mínimo</label>
-                                <input type="number" name="preco_min" value="{{ $priceMin }}" placeholder="0" class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-brand focus:outline-none">
+                                <input type="number" name="preco_min" value="{{ $priceMin }}" placeholder="0" class="w-full text-xs px-2.5 py-1.5 border border-stone-300 focus:border-brand focus:outline-none">
                             </div>
                             <div>
                                 <label class="text-[10px] text-stone-400 block mb-1">Máximo</label>
-                                <input type="number" name="preco_max" value="{{ $priceMax }}" placeholder="1000" class="w-full text-xs px-2.5 py-1.5 rounded-lg border border-stone-300 focus:border-brand focus:outline-none">
+                                <input type="number" name="preco_max" value="{{ $priceMax }}" placeholder="1000" class="w-full text-xs px-2.5 py-1.5 border border-stone-300 focus:border-brand focus:outline-none">
                             </div>
                         </div>
 
-                        <button type="submit" class="w-full py-2 bg-[#1C1917] hover:bg-brand text-white text-[11px] uppercase tracking-wider font-semibold rounded-full transition shadow-xs">
+                        <button type="submit" class="w-full py-2 bg-[#1C1917] hover:bg-brand text-white text-[11px] uppercase tracking-wider font-semibold transition shadow-xs">
                             Aplicar Filtro
                         </button>
                     </form>
@@ -165,7 +165,7 @@
                         @foreach ($categories as $cat)
                             <li>
                                 <a href="{{ route('catalog.category', ['categorySlug' => $cat['slug']]) }}"
-                                   class="block py-2 px-2.5 rounded-lg {{ $selectedCategory === $cat['slug'] ? 'bg-brand text-white font-bold' : 'text-stone-700' }}">
+                                   class="block py-2 px-2.5 {{ $selectedCategory === $cat['slug'] ? 'bg-brand text-white font-bold' : 'text-stone-700' }}">
                                     {{ $cat['name'] }}
                                 </a>
                             </li>
@@ -173,7 +173,7 @@
                     </ul>
                 </div>
 
-                <button @click="mobileFilterOpen = false" class="w-full py-2.5 bg-brand text-white rounded-full text-xs uppercase tracking-wider font-semibold">
+                <button @click="mobileFilterOpen = false" class="w-full py-2.5 bg-brand text-white text-xs uppercase tracking-wider font-semibold">
                     Ver Peças
                 </button>
             </div>
@@ -190,12 +190,12 @@
                 </div>
             @else
                 {{-- Empty Search Results --}}
-                <div class="bg-white rounded-3xl p-12 text-center border border-stone-200 shadow-xs">
+                <div class="bg-white p-12 text-center border border-stone-200 shadow-xs">
                     <h3 class="font-serif text-xl text-stone-900">Nenhuma peça encontrada</h3>
                     <p class="text-xs text-stone-500 max-w-sm mx-auto mt-2 font-light">
                         Não encontramos modelos com os filtros selecionados. Tente ajustar a busca ou conferir toda a nossa nova coleção.
                     </p>
-                    <a href="{{ route('catalog.index') }}" class="mt-6 inline-flex items-center px-6 py-2.5 rounded-full bg-brand text-white text-xs uppercase tracking-wider font-semibold hover:bg-brand-hover transition shadow-sm">
+                    <a href="{{ route('catalog.index') }}" class="mt-6 inline-flex items-center px-6 py-2.5 bg-brand text-white text-xs uppercase tracking-wider font-semibold hover:bg-brand-hover transition shadow-sm">
                         Ver Coleção Completa
                     </a>
                 </div>

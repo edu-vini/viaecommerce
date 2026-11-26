@@ -30,10 +30,10 @@
                 <a href="{{ route('order.show', ['code' => 'EL-8291']) }}" class="hover:text-white transition">Rastrear Pedido</a>
                 <div class="flex items-center gap-2 pl-4 border-l border-stone-800" x-data>
                     <span class="text-[10px] text-stone-400">Paleta:</span>
-                    <button @click="$store.theme.setTheme('default')" class="w-3.5 h-3.5 rounded-full bg-[#720403] border border-white/60 hover:scale-125 transition" title="Elisie Bordeaux"></button>
-                    <button @click="$store.theme.setTheme('dourado')" class="w-3.5 h-3.5 rounded-full bg-[#855B28] border border-white/60 hover:scale-125 transition" title="Dourado Nobre"></button>
-                    <button @click="$store.theme.setTheme('noir')" class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-white/60 hover:scale-125 transition" title="Noir Elegance"></button>
-                    <button @click="$store.theme.setTheme('rose')" class="w-3.5 h-3.5 rounded-full bg-[#8E3646] border border-white/60 hover:scale-125 transition" title="Rosé Marsala"></button>
+                    <button @click="$store.theme.setTheme('default')" class="w-3.5 h-3.5 bg-[#720403] border border-white/60 hover:scale-125 transition" title="Elisie Bordeaux"></button>
+                    <button @click="$store.theme.setTheme('dourado')" class="w-3.5 h-3.5 bg-[#855B28] border border-white/60 hover:scale-125 transition" title="Dourado Nobre"></button>
+                    <button @click="$store.theme.setTheme('noir')" class="w-3.5 h-3.5 bg-[#18181B] border border-white/60 hover:scale-125 transition" title="Noir Elegance"></button>
+                    <button @click="$store.theme.setTheme('rose')" class="w-3.5 h-3.5 bg-[#8E3646] border border-white/60 hover:scale-125 transition" title="Rosé Marsala"></button>
                 </div>
             </div>
         </div>
@@ -71,7 +71,7 @@
             <button @click="$store.cart.toggle()" class="flex flex-col items-center gap-1 text-[11px] hover:text-brand transition relative">
                 <div class="relative">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
-                    <span x-show="$store.cart.count > 0" x-text="$store.cart.count" class="absolute -top-1.5 -right-2 bg-brand text-white text-[9px] font-bold rounded-full h-4 w-4 flex items-center justify-center"></span>
+                    <span x-show="$store.cart.count > 0" x-text="$store.cart.count" class="absolute -top-1.5 -right-2 bg-brand text-white text-[9px] font-bold h-4 w-4 flex items-center justify-center"></span>
                 </div>
                 <span>Sacola</span>
             </button>

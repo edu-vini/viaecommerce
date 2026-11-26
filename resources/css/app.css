@@ -59,6 +59,26 @@
     --brand-gradient: linear-gradient(135deg, #8e3646 0%, #5d1c28 100%);
 }
 
+/* ZERO BORDER RADIUS - ESTÉTICA EDITORIAL DE ALTA COSTURA / BOUTIQUE */
+*,
+*::before,
+*::after,
+button,
+input,
+select,
+textarea,
+img,
+div,
+span,
+section,
+header,
+footer,
+nav,
+aside,
+table {
+    border-radius: 0px !important;
+}
+
 /* Custom Utilities */
 .font-serif {
     font-family: var(--font-serif);
@@ -95,7 +115,7 @@
 }
 .focus-ring-brand:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(114, 4, 3, 0.2);
+    box-shadow: 0 0 0 2px rgba(114, 4, 3, 0.25);
 }
 
 /* Fashion Lookbook Ratio */

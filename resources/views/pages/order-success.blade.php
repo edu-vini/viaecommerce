@@ -16,7 +16,7 @@
 
     {{-- Success Header Banner --}}
     <div class="text-center space-y-3 pb-8">
-        <div class="w-14 h-14 rounded-full bg-[#FAF8F5] text-[#8B5E3C] border border-stone-200 mx-auto flex items-center justify-center shadow-xs">
+        <div class="w-14 h-14 bg-[#FAF8F5] text-[#8B5E3C] border border-stone-200 mx-auto flex items-center justify-center shadow-xs">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
         </div>
         <h1 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 tracking-tight">Pedido Recebido com Sucesso!</h1>
@@ -26,7 +26,7 @@
     </div>
 
     {{-- Visual Status Timeline (Boutique Style) --}}
-    <div class="bg-white rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-xs mb-8">
+    <div class="bg-white p-6 sm:p-8 border border-stone-200/80 shadow-xs mb-8">
         <h3 class="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-6 text-center sm:text-left">
             Acompanhamento do seu Pedido
         </h3>
@@ -39,7 +39,7 @@
 
             {{-- 1. Aguardando Pagamento --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 rounded-full bg-brand text-white flex items-center justify-center text-xs font-serif font-bold ring-4 ring-stone-200 shadow-sm animate-pulse">
+                <div class="w-9 h-9 bg-brand text-white flex items-center justify-center text-xs font-serif font-bold shadow-sm border border-brand">
                     ✓
                 </div>
                 <span class="text-xs font-bold text-stone-900 mt-2">Aguardando Pix</span>
@@ -48,7 +48,7 @@
 
             {{-- 2. Pago --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
+                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
                     2
                 </div>
                 <span class="text-xs font-medium text-stone-500 mt-2">Aprovado</span>
@@ -56,7 +56,7 @@
 
             {{-- 3. Em Separação --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
+                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
                     3
                 </div>
                 <span class="text-xs font-medium text-stone-500 mt-2">Embalando Peça</span>
@@ -64,7 +64,7 @@
 
             {{-- 4. Enviado --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
+                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
                     4
                 </div>
                 <span class="text-xs font-medium text-stone-500 mt-2">Enviado / Rastreio</span>
@@ -72,7 +72,7 @@
 
             {{-- 5. Entregue --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
+                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
                     5
                 </div>
                 <span class="text-xs font-medium text-stone-500 mt-2">Entregue</span>
@@ -82,11 +82,11 @@
 
     {{-- Pix Payment Box (if Pix selected) --}}
     @if ($order['payment_method'] === 'pix')
-        <div class="bg-[#FAF8F5] rounded-3xl p-6 sm:p-8 border border-stone-200/80 shadow-md mb-8">
+        <div class="bg-[#FAF8F5] p-6 sm:p-8 border border-stone-200/80 shadow-md mb-8">
             <div class="flex flex-col sm:flex-row items-center gap-6">
 
                 {{-- QR Code Image Mock --}}
-                <div class="bg-white p-4 rounded-2xl border border-stone-200 shadow-xs shrink-0 flex flex-col items-center">
+                <div class="bg-white p-4 border border-stone-200 shadow-xs shrink-0 flex flex-col items-center">
                     <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data={{ urlencode($order['pix_code']) }}"
                          alt="QR Code Pix"
                          class="w-40 h-40 object-contain">
@@ -96,7 +96,7 @@
                 {{-- Pix Instructions & Copy Key --}}
                 <div class="flex-1 space-y-4 text-center sm:text-left">
                     <div>
-                        <span class="inline-block text-[10px] tracking-wider uppercase font-semibold text-brand bg-white px-3 py-1 rounded-full border border-stone-200 mb-2">
+                        <span class="inline-block text-[10px] tracking-wider uppercase font-semibold text-brand bg-white px-3 py-1 border border-stone-200 mb-2">
                             Pagamento Instantâneo
                         </span>
                         <h3 class="font-serif text-2xl text-stone-900 font-normal">Valor com 5% de desconto: R$ {{ number_format($order['total'], 2, ',', '.') }}</h3>
@@ -109,8 +109,8 @@
                     <div class="space-y-2">
                         <label class="block text-[11px] font-bold text-stone-700 uppercase tracking-wider">Chave Pix Copia e Cola:</label>
                         <div class="flex items-center gap-2">
-                            <input type="text" readonly value="{{ $order['pix_code'] }}" class="text-xs bg-white border border-stone-300 rounded-full px-4 py-2.5 flex-1 font-mono text-stone-700 focus:outline-none select-all truncate">
-                            <button @click="copyPixCode()" type="button" class="px-6 py-2.5 bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-wider font-medium rounded-full transition flex items-center gap-1.5 shadow-xs shrink-0">
+                            <input type="text" readonly value="{{ $order['pix_code'] }}" class="text-xs bg-white border border-stone-300 px-4 py-2.5 flex-1 font-mono text-stone-700 focus:outline-none select-all truncate">
+                            <button @click="copyPixCode()" type="button" class="px-6 py-2.5 bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-wider font-medium transition flex items-center gap-1.5 shadow-xs shrink-0">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
                                 <span x-text="copied ? 'Copiado!' : 'Copiar Código'"></span>
                             </button>
@@ -123,7 +123,7 @@
     @endif
 
     {{-- Order Breakdown Details --}}
-    <div class="bg-white rounded-3xl border border-stone-200/80 p-6 sm:p-8 shadow-xs space-y-6">
+    <div class="bg-white border border-stone-200/80 p-6 sm:p-8 shadow-xs space-y-6">
         <div class="flex items-center justify-between pb-4 border-b border-stone-100">
             <div>
                 <span class="text-[11px] text-stone-400 uppercase tracking-wider">Identificador do Pedido:</span>
@@ -142,7 +142,7 @@
                 @foreach ($order['items'] as $it)
                     <div class="py-3 flex items-center justify-between gap-4">
                         <div class="flex items-center gap-3">
-                            <img src="{{ $it['image'] }}" class="w-12 h-16 object-cover object-top rounded-xl border border-stone-100">
+                            <img src="{{ $it['image'] }}" class="w-12 h-16 object-cover object-top border border-stone-100">
                             <div>
                                 <h5 class="font-serif text-xs font-semibold text-stone-900">{{ $it['title'] }}</h5>
                                 <span class="text-[11px] text-stone-500 font-light">{{ $it['variation'] ?? '' }} • Quantidade: {{ $it['quantity'] }}</span>
@@ -156,7 +156,7 @@
 
         {{-- Shipping and payment info grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-stone-100 text-xs">
-            <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200">
+            <div class="p-4 bg-[#FAF8F5] border border-stone-200">
                 <span class="text-[10px] uppercase font-bold text-stone-400 block mb-1">Endereço de Destino</span>
                 <p class="font-semibold text-stone-900">{{ $order['customer_name'] }}</p>
                 <p class="text-stone-600 font-light">{{ $order['shipping_address'] }}</p>
@@ -164,7 +164,7 @@
                 <p class="text-stone-500 mt-1">Envio: <strong class="text-stone-800 font-medium">{{ $order['shipping_method'] }}</strong></p>
             </div>
 
-            <div class="p-4 rounded-2xl bg-[#FAF8F5] border border-stone-200 space-y-1.5 font-light">
+            <div class="p-4 bg-[#FAF8F5] border border-stone-200 space-y-1.5 font-light">
                 <span class="text-[10px] uppercase font-bold text-stone-400 block mb-1">Resumo Financeiro</span>
                 <div class="flex justify-between text-stone-600">
                     <span>Subtotal das peças:</span>
@@ -187,10 +187,10 @@
 
         {{-- Actions --}}
         <div class="pt-4 flex flex-wrap items-center justify-between gap-4">
-            <button onclick="window.print()" class="px-5 py-2.5 rounded-full border border-stone-300 text-xs uppercase tracking-wider font-medium text-stone-700 hover:bg-stone-50 transition">
+            <button onclick="window.print()" class="px-5 py-2.5 border border-stone-300 text-xs uppercase tracking-wider font-medium text-stone-700 hover:bg-stone-50 transition">
                 Imprimir Pedido
             </button>
-            <a href="{{ route('home') }}" class="px-7 py-2.5 rounded-full bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-wider font-medium transition shadow-xs">
+            <a href="{{ route('home') }}" class="px-7 py-2.5 bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-wider font-medium transition shadow-xs">
                 Voltar à Loja
             </a>
         </div>

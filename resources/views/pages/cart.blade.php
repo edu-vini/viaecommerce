@@ -60,15 +60,15 @@
     </div>
 
     {{-- Empty State --}}
-    <div x-show="$store.cart.items.length === 0" class="py-20 text-center bg-white rounded-3xl border border-stone-200 mt-8 shadow-xs">
-        <div class="w-16 h-16 rounded-full bg-[#FAF8F5] text-stone-400 mx-auto flex items-center justify-center mb-4">
+    <div x-show="$store.cart.items.length === 0" class="py-20 text-center bg-white border border-stone-200 mt-8 shadow-xs">
+        <div class="w-16 h-16 bg-[#FAF8F5] text-stone-400 mx-auto flex items-center justify-center mb-4 border border-stone-200">
             <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
         </div>
         <h3 class="font-serif text-xl text-stone-900">Sua sacola está vazia</h3>
         <p class="text-xs text-stone-500 max-w-sm mx-auto mt-2 font-light">
             Encontre o vestido ou look perfeito para expressar sua essência com sofisticação!
         </p>
-        <a href="{{ route('catalog.index') }}" class="mt-6 inline-flex items-center px-7 py-3 rounded-full bg-[#1C1917] text-white text-xs uppercase tracking-wider font-medium hover:bg-brand transition shadow-xs">
+        <a href="{{ route('catalog.index') }}" class="mt-6 inline-flex items-center px-7 py-3 bg-[#1C1917] text-white text-xs uppercase tracking-wider font-medium hover:bg-brand transition shadow-xs">
             Ver Coleção
         </a>
     </div>
@@ -78,7 +78,7 @@
 
         {{-- Left: Items List (8 cols) --}}
         <div class="lg:col-span-8 space-y-4">
-            <div class="bg-white rounded-3xl border border-stone-200/80 shadow-xs overflow-hidden">
+            <div class="bg-white border border-stone-200/80 shadow-xs overflow-hidden">
                 <div class="hidden sm:grid grid-cols-12 p-4 text-[11px] font-semibold text-stone-400 uppercase tracking-wider bg-[#FAF8F5] border-b border-stone-200">
                     <div class="col-span-6">Peça</div>
                     <div class="col-span-2 text-center">Quantidade</div>
@@ -91,12 +91,12 @@
                         <div class="flex flex-col sm:grid sm:grid-cols-12 sm:items-center gap-4 py-4 first:pt-0 last:pb-0">
                             {{-- Product info --}}
                             <div class="sm:col-span-6 flex items-center gap-4">
-                                <img :src="item.image" :alt="item.title" class="w-16 h-20 sm:w-20 sm:h-24 object-cover object-top rounded-xl border border-stone-100 shrink-0">
+                                <img :src="item.image" :alt="item.title" class="w-16 h-20 sm:w-20 sm:h-24 object-cover object-top border border-stone-100 shrink-0">
                                 <div class="min-w-0">
                                     <span class="text-[10px] text-stone-400 uppercase tracking-wider" x-text="item.category"></span>
                                     <h4 class="font-serif text-xs sm:text-sm font-semibold text-stone-900 truncate" x-text="item.title"></h4>
                                     <template x-if="item.variation">
-                                        <span class="inline-block text-[11px] font-medium text-stone-500 bg-[#FAF8F5] px-2 py-0.5 rounded mt-1 font-light" x-text="item.variation"></span>
+                                        <span class="inline-block text-[11px] font-medium text-stone-500 bg-[#FAF8F5] px-2 py-0.5 border border-stone-200 mt-1 font-light" x-text="item.variation"></span>
                                     </template>
                                     <button @click="$store.cart.removeItem(index)" class="text-[11px] text-rose-500 hover:underline block mt-1">
                                         Remover peça
@@ -106,7 +106,7 @@
 
                             {{-- Quantity modifier --}}
                             <div class="sm:col-span-2 flex justify-start sm:justify-center">
-                                <div class="flex items-center border border-stone-200 rounded-md overflow-hidden bg-white text-xs">
+                                <div class="flex items-center border border-stone-200 overflow-hidden bg-white text-xs">
                                     <button @click="$store.cart.updateQty(index, item.quantity - 1)" class="px-2.5 py-0.5 text-stone-500 hover:bg-stone-100 transition">-</button>
                                     <span class="px-3 py-0.5 bg-white min-w-[28px] text-center font-medium" x-text="item.quantity"></span>
                                     <button @click="$store.cart.updateQty(index, item.quantity + 1)" class="px-2.5 py-0.5 text-stone-500 hover:bg-stone-100 transition">+</button>
@@ -132,20 +132,20 @@
             {{-- Shipping & Coupon Box --}}
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {{-- Coupon Tool --}}
-                <div class="bg-white rounded-2xl p-5 border border-stone-200 shadow-xs">
+                <div class="bg-white p-5 border border-stone-200 shadow-xs">
                     <h4 class="text-xs font-semibold text-stone-800 uppercase tracking-wider mb-2">
                         Cupom Exclusivo
                     </h4>
                     <template x-if="!$store.cart.coupon">
                         <div class="flex gap-2">
-                            <input type="text" x-model="couponInput" placeholder="Ex: BEMVINDA10" class="uppercase flex-1 px-3.5 py-2 text-xs rounded-full border border-stone-300 focus:outline-none focus:border-brand">
-                            <button @click="if(couponInput) { $store.cart.applyCoupon(couponInput); couponInput = ''; }" class="px-5 py-2 bg-[#1C1917] text-white text-xs uppercase tracking-wider font-semibold rounded-full hover:bg-brand transition">
+                            <input type="text" x-model="couponInput" placeholder="Ex: BEMVINDA10" class="uppercase flex-1 px-3.5 py-2 text-xs border border-stone-300 focus:outline-none focus:border-brand">
+                            <button @click="if(couponInput) { $store.cart.applyCoupon(couponInput); couponInput = ''; }" class="px-5 py-2 bg-[#1C1917] text-white text-xs uppercase tracking-wider font-semibold hover:bg-brand transition">
                                 Aplicar
                             </button>
                         </div>
                     </template>
                     <template x-if="$store.cart.coupon">
-                        <div class="flex items-center justify-between p-2.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs">
+                        <div class="flex items-center justify-between p-2.5 bg-emerald-50 border border-emerald-200 text-xs">
                             <span class="text-emerald-800 font-medium">Cupom <strong x-text="$store.cart.coupon"></strong> (<span x-text="$store.cart.discountPercent + '% OFF'"></span>)</span>
                             <button @click="$store.cart.removeCoupon()" class="text-rose-600 font-bold hover:underline">Remover</button>
                         </div>
@@ -154,19 +154,19 @@
                 </div>
 
                 {{-- Shipping Estimation Tool --}}
-                <div class="bg-white rounded-2xl p-5 border border-stone-200 shadow-xs">
+                <div class="bg-white p-5 border border-stone-200 shadow-xs">
                     <h4 class="text-xs font-semibold text-stone-800 uppercase tracking-wider mb-2">
                         Calcular Frete
                     </h4>
                     <div class="flex gap-2">
-                        <input type="text" x-model="cep" placeholder="00000-000" maxlength="9" class="flex-1 px-3.5 py-2 text-xs rounded-full border border-stone-300 focus:outline-none focus:border-brand">
-                        <button @click="calcShipping()" :disabled="shippingLoading" class="px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium uppercase tracking-wider rounded-full transition">
+                        <input type="text" x-model="cep" placeholder="00000-000" maxlength="9" class="flex-1 px-3.5 py-2 text-xs border border-stone-300 focus:outline-none focus:border-brand">
+                        <button @click="calcShipping()" :disabled="shippingLoading" class="px-5 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-medium uppercase tracking-wider transition">
                             <span x-show="!shippingLoading">Calcular</span>
                             <span x-show="shippingLoading">...</span>
                         </button>
                     </div>
                     <template x-if="shippingName">
-                        <div class="mt-2 text-xs flex justify-between font-medium text-stone-700 bg-[#FAF8F5] p-2 rounded-lg">
+                        <div class="mt-2 text-xs flex justify-between font-medium text-stone-700 bg-[#FAF8F5] p-2 border border-stone-200">
                             <span x-text="shippingName"></span>
                             <span class="font-bold text-emerald-800" x-text="shippingCost === 0 ? 'GRÁTIS' : 'R$ ' + shippingCost.toFixed(2)"></span>
                         </div>
@@ -177,7 +177,7 @@
 
         {{-- Right: Order Summary Box (4 cols) --}}
         <div class="lg:col-span-4">
-            <div class="bg-white rounded-3xl border border-stone-200/80 p-6 shadow-md space-y-5 sticky top-24">
+            <div class="bg-white border border-stone-200/80 p-6 shadow-md space-y-5 sticky top-24">
                 <h3 class="font-serif text-lg text-stone-900 pb-3 border-b border-stone-100 font-normal">Resumo da Sacola</h3>
 
                 <div class="space-y-3 text-xs">
@@ -208,7 +208,7 @@
                         </div>
                     </div>
 
-                    <div class="p-3 rounded-2xl bg-[#FAF8F5] border border-stone-200 text-stone-800 text-xs">
+                    <div class="p-3 bg-[#FAF8F5] border border-stone-200 text-stone-800 text-xs">
                         <div class="flex items-center justify-between font-medium">
                             <span class="text-[#8B5E3C] font-semibold">No Pix com 5% OFF:</span>
                             <span class="text-sm font-bold text-stone-900" x-text="'R$ ' + (($store.cart.total + shippingCost) * 0.95).toLocaleString('pt-BR', {minimumFractionDigits: 2})"></span>
@@ -216,7 +216,10 @@
                     </div>
                 </div>
 
-                <a href="{{ route('checkout.index') }}" class="w-full flex items-center justify-center gap-2 py-4 px-6 rounded-full bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-widest font-medium transition duration-300 shadow-md">
+                <a href="{{ route('checkout.index') }}" class="w-full flex items-center justify-center gap-2 py-4 px-6 bg-[#1C1917] hover:bg-brand text-white text-xs uppercase tracking-widest font-medium transition duration-300 shadow-md">
+                    <span>Ir para o Checkout</span>
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </a>
                     <span>Ir para o Checkout</span>
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
                 </a>
