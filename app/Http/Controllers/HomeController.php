@@ -5,7 +5,6 @@ namespace App\Services;
 namespace App\Http\Controllers;
 
 use App\Services\EcommerceDataService;
-use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
@@ -14,10 +13,10 @@ class HomeController extends Controller
         $categories = EcommerceDataService::getCategories();
         $allProducts = EcommerceDataService::getProducts();
 
-        $featuredProducts = array_filter($allProducts, fn($p) => $p['is_featured']);
-        $deals = array_filter($allProducts, fn($p) => $p['is_deal']);
-        $bestSellers = array_filter($allProducts, fn($p) => $p['is_best_seller']);
-        $newArrivals = array_filter($allProducts, fn($p) => $p['is_new']);
+        $featuredProducts = array_filter($allProducts, fn ($p) => $p['is_featured']);
+        $deals = array_filter($allProducts, fn ($p) => $p['is_deal']);
+        $bestSellers = array_filter($allProducts, fn ($p) => $p['is_best_seller']);
+        $newArrivals = array_filter($allProducts, fn ($p) => $p['is_new']);
 
         return view('pages.home', [
             'categories' => $categories,

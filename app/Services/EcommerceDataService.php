@@ -14,7 +14,7 @@ class EcommerceDataService
                 'icon' => 'sparkles',
                 'description' => 'Modelagens evasê, fluidas e estruturadas com caimento impecável',
                 'count' => 24,
-                'featured_image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 2,
@@ -23,7 +23,7 @@ class EcommerceDataService
                 'icon' => 'briefcase',
                 'description' => 'Peças estruturadas com forro acetinado e cortes contemporâneos',
                 'count' => 18,
-                'featured_image' => 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 3,
@@ -32,7 +32,7 @@ class EcommerceDataService
                 'icon' => 'layers',
                 'description' => 'Combinações sofisticadas de saias, calças e blusas em perfeita harmonia',
                 'count' => 16,
-                'featured_image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 4,
@@ -41,7 +41,7 @@ class EcommerceDataService
                 'icon' => 'heart',
                 'description' => 'Elegância sublime para ocasiões especiais e celebrações marcantes',
                 'count' => 12,
-                'featured_image' => 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 5,
@@ -50,7 +50,7 @@ class EcommerceDataService
                 'icon' => 'bookmark',
                 'description' => 'Modelagens plissadas, evasê e chemises em tecidos nobres e atemporais',
                 'count' => 20,
-                'featured_image' => 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80',
             ],
             [
                 'id' => 6,
@@ -59,7 +59,7 @@ class EcommerceDataService
                 'icon' => 'sun',
                 'description' => 'Chiffon, seda e algodão egípcio com golas laço e botões delicados',
                 'count' => 15,
-                'featured_image' => 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80'
+                'featured_image' => 'https://images.unsplash.com/photo-1534126511673-b6899657816a?auto=format&fit=crop&w=600&q=80',
             ],
         ];
     }
@@ -73,7 +73,7 @@ class EcommerceDataService
                 'slug' => 'vestido-midi-aurora-linho-puro',
                 'category_slug' => 'vestidos-midi',
                 'category_name' => 'Vestidos Midi',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'NOVA COLEÇÃO',
                 'price' => 489.90,
                 'original_price' => 569.00,
@@ -105,7 +105,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'VES-AURORA-P', 'price_delta' => 0, 'stock' => 6],
                         ['label' => 'M (40)', 'sku' => 'VES-AURORA-M', 'price_delta' => 0, 'stock' => 4],
                         ['label' => 'G (42)', 'sku' => 'VES-AURORA-G', 'price_delta' => 0, 'stock' => 2],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'PP (36)', 'bust' => '84-88 cm', 'waist' => '64-68 cm', 'hip' => '92-96 cm', 'length' => '118 cm'],
@@ -121,8 +121,8 @@ class EcommerceDataService
                     'Forro Interno' => '100% Algodão Toque de Seda (zero transparência)',
                     'Fechamento' => 'Zíper invisível nas costas com colchete de segurança',
                     'Acabamento' => 'Bainha invisível e botões decorativos forrados à mão',
-                    'Garantia' => 'Primeira troca 100% gratuita em até 30 dias'
-                ]
+                    'Garantia' => 'Primeira troca 100% gratuita em até 30 dias',
+                ],
             ],
             [
                 'id' => 2,
@@ -130,7 +130,7 @@ class EcommerceDataService
                 'slug' => 'conjunto-alfaiataria-florenca-pantalona',
                 'category_slug' => 'alfaiataria',
                 'category_name' => 'Alfaiataria & Blazers',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'BEST SELLER',
                 'price' => 649.00,
                 'original_price' => 749.00,
@@ -162,7 +162,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'CONJ-FLOR-P', 'price_delta' => 0, 'stock' => 5],
                         ['label' => 'M (40)', 'sku' => 'CONJ-FLOR-M', 'price_delta' => 0, 'stock' => 3],
                         ['label' => 'G (42)', 'sku' => 'CONJ-FLOR-G', 'price_delta' => 0, 'stock' => 2],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '90 cm', 'waist' => '70 cm', 'hip' => '98 cm', 'length' => '110 cm (calça)'],
@@ -175,8 +175,8 @@ class EcommerceDataService
                     'Tecido' => 'Crepe de Alfaiataria Florença (96% Poliéster Premium, 4% Elastano)',
                     'Forro do Blazer' => 'Cetim Toque Suave com acabamento acetinado',
                     'Modelagem da Calça' => 'Pantalona de alfaiataria com pregas frontais e bolso faca',
-                    'Cuidados' => 'Lavar à seco ou ciclo delicado com sabão neutro'
-                ]
+                    'Cuidados' => 'Lavar à seco ou ciclo delicado com sabão neutro',
+                ],
             ],
             [
                 'id' => 3,
@@ -184,7 +184,7 @@ class EcommerceDataService
                 'slug' => 'vestido-longo-sublime-chiffon',
                 'category_slug' => 'vestidos-longos',
                 'category_name' => 'Vestidos Longos & Festa',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'EDIÇÃO LIMITADA',
                 'price' => 589.00,
                 'original_price' => 689.00,
@@ -215,7 +215,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'VES-SUBLIME-P', 'price_delta' => 0, 'stock' => 3],
                         ['label' => 'M (40)', 'sku' => 'VES-SUBLIME-M', 'price_delta' => 0, 'stock' => 3],
                         ['label' => 'G (42)', 'sku' => 'VES-SUBLIME-G', 'price_delta' => 0, 'stock' => 2],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '88-92 cm', 'waist' => '68-72 cm', 'hip' => 'Evase Livre', 'length' => '145 cm'],
@@ -228,8 +228,8 @@ class EcommerceDataService
                     'Tecido' => 'Chiffon Suíço com trama fechada suave',
                     'Forro' => 'Duplo forro em helanca light especial',
                     'Comprimento' => 'Longo clássico (145cm)',
-                    'Detalhes' => 'Punhos delicados com elástico suave e decote fechado'
-                ]
+                    'Detalhes' => 'Punhos delicados com elástico suave e decote fechado',
+                ],
             ],
             [
                 'id' => 4,
@@ -237,7 +237,7 @@ class EcommerceDataService
                 'slug' => 'chemise-midi-atemporal-madreperola',
                 'category_slug' => 'saias',
                 'category_name' => 'Saias & Chemises',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'ESSENCIAL',
                 'price' => 429.90,
                 'original_price' => 499.00,
@@ -269,7 +269,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'CHEM-ATEM-P', 'price_delta' => 0, 'stock' => 6],
                         ['label' => 'M (40)', 'sku' => 'CHEM-ATEM-M', 'price_delta' => 0, 'stock' => 5],
                         ['label' => 'G (42)', 'sku' => 'CHEM-ATEM-G', 'price_delta' => 0, 'stock' => 3],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '90 cm', 'waist' => '74 cm', 'hip' => '98 cm', 'length' => '115 cm'],
@@ -282,8 +282,8 @@ class EcommerceDataService
                     'Composição' => '97% Algodão Nobre Fio 60, 3% Elastano',
                     'Botões' => 'Madrepérola natural personalizada',
                     'Bolsos' => 'Laterais embutidos funcionais',
-                    'Mangas' => 'Manga 3/4 com martingale para dobrar com charme'
-                ]
+                    'Mangas' => 'Manga 3/4 com martingale para dobrar com charme',
+                ],
             ],
             [
                 'id' => 5,
@@ -291,7 +291,7 @@ class EcommerceDataService
                 'slug' => 'saia-midi-plissada-sublime',
                 'category_slug' => 'saias',
                 'category_name' => 'Saias & Chemises',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'O QUERIDINHO',
                 'price' => 329.90,
                 'original_price' => 389.00,
@@ -323,7 +323,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'SAIA-PLIS-P', 'price_delta' => 0, 'stock' => 8],
                         ['label' => 'M (40)', 'sku' => 'SAIA-PLIS-M', 'price_delta' => 0, 'stock' => 6],
                         ['label' => 'G (42)', 'sku' => 'SAIA-PLIS-G', 'price_delta' => 0, 'stock' => 3],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '-', 'waist' => '68-72 cm', 'hip' => 'Plissado Livre', 'length' => '82 cm'],
@@ -335,8 +335,8 @@ class EcommerceDataService
                 'specifications' => [
                     'Tecido' => 'Crepe Plissé Première com brilho acetinado sutil',
                     'Forro' => 'Forro integral até a altura do joelho',
-                    'Cós' => 'Estruturado na frente e elástico discreto nas costas'
-                ]
+                    'Cós' => 'Estruturado na frente e elástico discreto nas costas',
+                ],
             ],
             [
                 'id' => 6,
@@ -344,7 +344,7 @@ class EcommerceDataService
                 'slug' => 'camisa-seda-pura-gola-laco',
                 'category_slug' => 'blusas-camisas',
                 'category_name' => 'Camisas & Blusas Finas',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'EXCLUSIVIDADE',
                 'price' => 379.90,
                 'original_price' => 439.00,
@@ -376,7 +376,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'CAM-LACO-P', 'price_delta' => 0, 'stock' => 4],
                         ['label' => 'M (40)', 'sku' => 'CAM-LACO-M', 'price_delta' => 0, 'stock' => 3],
                         ['label' => 'G (42)', 'sku' => 'CAM-LACO-G', 'price_delta' => 0, 'stock' => 1],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '90 cm', 'waist' => '78 cm', 'hip' => '-', 'length' => '62 cm'],
@@ -388,8 +388,8 @@ class EcommerceDataService
                 'specifications' => [
                     'Tecido' => 'Musseline de Seda com toque aveludado',
                     'Gola' => 'Faixa estendida permitindo laço volumoso ou nós soltos',
-                    'Punhos' => 'Três botões forrados de acabamento artesanal'
-                ]
+                    'Punhos' => 'Três botões forrados de acabamento artesanal',
+                ],
             ],
             [
                 'id' => 7,
@@ -397,7 +397,7 @@ class EcommerceDataService
                 'slug' => 'vestido-midi-evase-poa-manga-princesa',
                 'category_slug' => 'vestidos-midi',
                 'category_name' => 'Vestidos Midi',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'ROMÂNTICO',
                 'price' => 459.90,
                 'original_price' => 529.00,
@@ -428,7 +428,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'VES-POA-P', 'price_delta' => 0, 'stock' => 5],
                         ['label' => 'M (40)', 'sku' => 'VES-POA-M', 'price_delta' => 0, 'stock' => 4],
                         ['label' => 'G (42)', 'sku' => 'VES-POA-G', 'price_delta' => 0, 'stock' => 2],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '88-92 cm', 'waist' => '68-72 cm', 'hip' => '96-100 cm', 'length' => '119 cm'],
@@ -440,8 +440,8 @@ class EcommerceDataService
                 'specifications' => [
                     'Tecido' => 'Crepe Georgette Premium com estampa poá exclusiva',
                     'Forro' => 'Forro 100% viscose hipoalergênico',
-                    'Decote' => 'Decote V modesto com costura de sustentação'
-                ]
+                    'Decote' => 'Decote V modesto com costura de sustentação',
+                ],
             ],
             [
                 'id' => 8,
@@ -449,7 +449,7 @@ class EcommerceDataService
                 'slug' => 'blazer-alfaiataria-duplo-botao-tweed',
                 'category_slug' => 'alfaiataria',
                 'category_name' => 'Alfaiataria & Blazers',
-                'brand' => 'Hadassa Concept',
+                'brand' => 'Elisie',
                 'badge' => 'ALTA COSTURA',
                 'price' => 529.00,
                 'original_price' => 619.00,
@@ -480,7 +480,7 @@ class EcommerceDataService
                         ['label' => 'P (38)', 'sku' => 'BLAZ-TWEED-P', 'price_delta' => 0, 'stock' => 4],
                         ['label' => 'M (40)', 'sku' => 'BLAZ-TWEED-M', 'price_delta' => 0, 'stock' => 2],
                         ['label' => 'G (42)', 'sku' => 'BLAZ-TWEED-G', 'price_delta' => 0, 'stock' => 1],
-                    ]
+                    ],
                 ],
                 'measurement_table' => [
                     ['size' => 'P (38)', 'bust' => '92 cm', 'waist' => '76 cm', 'hip' => '-', 'length' => '68 cm'],
@@ -492,9 +492,9 @@ class EcommerceDataService
                 'specifications' => [
                     'Tecido' => 'Tweed Bouclé Importado com fios acetinados',
                     'Botões' => 'Botões em relevo de brasão acabamento dourado fosco',
-                    'Forro' => 'Forro completo em cetim encorpado'
-                ]
-            ]
+                    'Forro' => 'Forro completo em cetim encorpado',
+                ],
+            ],
         ];
     }
 
@@ -506,6 +506,7 @@ class EcommerceDataService
                 return $product;
             }
         }
+
         return null;
     }
 
@@ -517,6 +518,7 @@ class EcommerceDataService
                 return $product;
             }
         }
+
         return null;
     }
 }

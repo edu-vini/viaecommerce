@@ -20,12 +20,12 @@ class CatalogController extends Controller
 
         // Filter by category
         if ($selectedCategory) {
-            $products = array_filter($products, fn($p) => $p['category_slug'] === $selectedCategory);
+            $products = array_filter($products, fn ($p) => $p['category_slug'] === $selectedCategory);
         }
 
         // Filter by search query
         if ($search !== '') {
-            $products = array_filter($products, function($p) use ($search) {
+            $products = array_filter($products, function ($p) use ($search) {
                 return stripos($p['title'], $search) !== false
                     || stripos($p['brand'], $search) !== false
                     || stripos($p['category_name'], $search) !== false
@@ -35,15 +35,15 @@ class CatalogController extends Controller
 
         // Filter by price range
         if ($priceMin !== null) {
-            $products = array_filter($products, fn($p) => $p['price'] >= $priceMin);
+            $products = array_filter($products, fn ($p) => $p['price'] >= $priceMin);
         }
         if ($priceMax !== null) {
-            $products = array_filter($products, fn($p) => $p['price'] <= $priceMax);
+            $products = array_filter($products, fn ($p) => $p['price'] <= $priceMax);
         }
 
         // Sorting
         $products = array_values($products);
-        usort($products, function($a, $b) use ($sort) {
+        usort($products, function ($a, $b) use ($sort) {
             switch ($sort) {
                 case 'menor_preco':
                     return $a['price'] <=> $b['price'];
@@ -54,6 +54,7 @@ class CatalogController extends Controller
                 case 'desconto':
                     $discountA = $a['original_price'] - $a['price'];
                     $discountB = $b['original_price'] - $b['price'];
+
                     return $discountB <=> $discountA;
                 default:
                     return $b['rating'] <=> $a['rating'];
@@ -89,26 +90,26 @@ class CatalogController extends Controller
         if (mb_strlen($query) < 2) {
             return response()->json([
                 'products' => [],
-                'categories' => []
+                'categories' => [],
             ]);
         }
 
         $allProducts = EcommerceDataService::getProducts();
         $allCategories = EcommerceDataService::getCategories();
 
-        $matchingProducts = array_filter($allProducts, function($p) use ($query) {
+        $matchingProducts = array_filter($allProducts, function ($p) use ($query) {
             return stripos($p['title'], $query) !== false
                 || stripos($p['brand'], $query) !== false
                 || stripos($p['category_name'], $query) !== false;
         });
 
-        $matchingCategories = array_filter($allCategories, function($c) use ($query) {
+        $matchingCategories = array_filter($allCategories, function ($c) use ($query) {
             return stripos($c['name'], $query) !== false;
         });
 
         return response()->json([
             'products' => array_slice(array_values($matchingProducts), 0, 5),
-            'categories' => array_slice(array_values($matchingCategories), 0, 3)
+            'categories' => array_slice(array_values($matchingCategories), 0, 3),
         ]);
     }
 }

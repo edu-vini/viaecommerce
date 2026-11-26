@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Services\EcommerceDataService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -16,7 +15,7 @@ class CheckoutController extends Controller
     public function process(Request $request)
     {
         // Generate mock confirmed order
-        $orderCode = 'VIA-' . strtoupper(Str::random(8));
+        $orderCode = 'VIA-'.strtoupper(Str::random(8));
 
         $orderData = [
             'code' => $orderCode,
@@ -33,10 +32,10 @@ class CheckoutController extends Controller
             'total' => (float) $request->input('total', 0),
             'created_at' => now()->format('d/m/Y H:i'),
             'status' => 'aguardando_pagamento',
-            'pix_code' => '00020126580014BR.GOV.BCB.PIX0136' . Str::uuid() . '5204000053039865802BR5920ViaEcommerce Pagamentos6009Sao Paulo62070503***6304' . strtoupper(Str::random(4)),
+            'pix_code' => '00020126580014BR.GOV.BCB.PIX0136'.Str::uuid().'5204000053039865802BR5920ViaEcommerce Pagamentos6009Sao Paulo62070503***6304'.strtoupper(Str::random(4)),
         ];
 
-        session(['latest_order_' . $orderCode => $orderData]);
+        session(['latest_order_'.$orderCode => $orderData]);
 
         return redirect()->route('order.show', ['code' => $orderCode]);
     }

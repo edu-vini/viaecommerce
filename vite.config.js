@@ -15,6 +15,9 @@ export default defineConfig({
                 bunny('Plus Jakarta Sans', {
                     weights: [400, 500, 600, 700],
                 }),
+                bunny('Great Vibes', {
+                    weights: [400],
+                }),
             ],
         }),
         tailwindcss(),

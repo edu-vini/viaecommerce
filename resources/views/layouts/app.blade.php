@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ $title ?? 'Hadassa Concept - Moda Feminina Elegante & Atemporal' }}</title>
-    <meta name="description" content="Moda feminina sofisticada, vestidos midi e longos, alfaiataria fina e conjuntos exclusivos com caimento nobre e modesto.">
+    <title>{{ $title ?? 'Elisie - Moderna. Elegante. Modesta' }}</title>
+    <meta name="description" content="Elisie Moda Feminina: Moderna, elegante e modesta. Vestidos midi exclusivos, alfaiataria fina e conjuntos atemporais.">
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900 font-sans selection:bg-[#8B5E3C] selection:text-white"
+<body class="min-h-full flex flex-col bg-[#FAF8F5] text-stone-900 font-sans selection:bg-[#720403] selection:text-white"
       x-data="{ mobileMenuOpen: false }">
 
-    {{-- Top Promotional Boutique Bar --}}
+    {{-- Top Promotional Bar --}}
     <div class="bg-[#1C1917] text-stone-300 text-[11px] py-2 px-4 tracking-wider uppercase">
         <div class="max-w-7xl mx-auto flex items-center justify-between">
             <div class="flex items-center gap-2 overflow-hidden whitespace-nowrap mx-auto lg:mx-0">
@@ -27,13 +27,13 @@
             </div>
             <div class="hidden lg:flex items-center gap-6 text-stone-300 font-medium">
                 <a href="#ajuda" class="hover:text-white transition">Ajuda & FAQ</a>
-                <a href="{{ route('order.show', ['code' => 'HB-9821']) }}" class="hover:text-white transition">Rastrear Pedido</a>
+                <a href="{{ route('order.show', ['code' => 'EL-8291']) }}" class="hover:text-white transition">Rastrear Pedido</a>
                 <div class="flex items-center gap-2 pl-4 border-l border-stone-800" x-data>
-                    <span class="text-[10px] text-stone-400">Tema:</span>
-                    <button @click="$store.theme.setTheme('default')" class="w-3.5 h-3.5 rounded-full bg-[#8B5E3C] border border-white/60 hover:scale-125 transition" title="Hadassa Terracota"></button>
+                    <span class="text-[10px] text-stone-400">Paleta:</span>
+                    <button @click="$store.theme.setTheme('default')" class="w-3.5 h-3.5 rounded-full bg-[#720403] border border-white/60 hover:scale-125 transition" title="Elisie Bordeaux"></button>
+                    <button @click="$store.theme.setTheme('dourado')" class="w-3.5 h-3.5 rounded-full bg-[#855B28] border border-white/60 hover:scale-125 transition" title="Dourado Nobre"></button>
                     <button @click="$store.theme.setTheme('noir')" class="w-3.5 h-3.5 rounded-full bg-[#18181B] border border-white/60 hover:scale-125 transition" title="Noir Elegance"></button>
-                    <button @click="$store.theme.setTheme('rose')" class="w-3.5 h-3.5 rounded-full bg-[#9F4958] border border-white/60 hover:scale-125 transition" title="Rosé Nobre"></button>
-                    <button @click="$store.theme.setTheme('oliva')" class="w-3.5 h-3.5 rounded-full bg-[#4D5D43] border border-white/60 hover:scale-125 transition" title="Oliva Suave"></button>
+                    <button @click="$store.theme.setTheme('rose')" class="w-3.5 h-3.5 rounded-full bg-[#8E3646] border border-white/60 hover:scale-125 transition" title="Rosé Marsala"></button>
                 </div>
             </div>
         </div>

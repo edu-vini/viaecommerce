@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Services\EcommerceDataService;
-use Illuminate\Http\Request;
 
 class CartController extends Controller
 {
@@ -13,7 +12,7 @@ class CartController extends Controller
         $recommendedProducts = array_slice($allProducts, 0, 4);
 
         return view('pages.cart', [
-            'recommendedProducts' => $recommendedProducts
+            'recommendedProducts' => $recommendedProducts,
         ]);
     }
 }

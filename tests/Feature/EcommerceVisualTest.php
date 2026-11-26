@@ -10,8 +10,8 @@ class EcommerceVisualTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertSee('Hadassa Braz');
-        $response->assertSee('Concept Atelier');
+        $response->assertSee('Elisie');
+        $response->assertSee('Moderna • Elegante • Modesta');
         $response->assertSee('Lançamentos Exclusivos');
         $response->assertSee('Os Mais Desejados');
         $response->assertSee('Compre por Categoria');
@@ -35,7 +35,7 @@ class EcommerceVisualTest extends TestCase
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'products',
-            'categories'
+            'categories',
         ]);
     }
 
@@ -56,8 +56,8 @@ class EcommerceVisualTest extends TestCase
         $response->assertJsonStructure([
             'cep',
             'options' => [
-                '*' => ['name', 'deadline', 'price', 'price_formatted']
-            ]
+                '*' => ['name', 'deadline', 'price', 'price_formatted'],
+            ],
         ]);
     }
 

@@ -28,17 +28,17 @@
         @click.away="searchOpen = false; categoryMenuOpen = false">
 
     {{-- Main Bar --}}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 sm:py-4">
         <div class="flex items-center justify-between gap-4">
 
-            {{-- Brand / Boutique Logo --}}
+            {{-- Brand / Elisie Logo --}}
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="group flex flex-col items-start">
-                    <span class="font-serif text-2xl sm:text-3xl font-normal tracking-[0.2em] uppercase text-stone-900 group-hover:text-brand transition">
-                        Hadassa Braz
+                    <span class="font-script text-3xl sm:text-4xl text-brand group-hover:opacity-90 transition leading-none py-1">
+                        Elisie
                     </span>
-                    <span class="text-[9px] tracking-[0.45em] text-stone-400 font-semibold uppercase -mt-0.5">
-                        Concept Atelier
+                    <span class="text-[9px] tracking-[0.25em] text-stone-500 font-medium uppercase">
+                        Moderna • Elegante • Modesta
                     </span>
                 </a>
             </div>
@@ -55,12 +55,12 @@
                             @focus="if(searchQuery.length >= 2) searchOpen = true"
                             placeholder="Buscar vestidos midi, alfaiataria, chemises, conjuntos..."
                             autocomplete="off"
-                            class="w-full pl-10 pr-20 py-2.5 text-xs rounded-full bg-[#FAF8F5] hover:bg-white focus:bg-white border border-stone-300/80 focus:border-brand focus:ring-2 focus:ring-stone-200 transition-all outline-none text-stone-800 placeholder-stone-400"
+                            class="w-full pl-10 pr-20 py-2.5 text-xs rounded-full bg-[#FAF8F5] hover:bg-white focus:bg-white border border-stone-300/80 focus:border-brand focus:ring-2 focus:ring-rose-100 transition-all outline-none text-stone-800 placeholder-stone-400"
                         />
                         <div class="absolute left-3.5 text-stone-400 pointer-events-none">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
                         </div>
-                        <button type="submit" class="absolute right-1 px-3.5 py-1.5 text-[11px] font-medium tracking-wider uppercase text-white bg-brand hover:bg-brand-hover rounded-full transition shadow-xs">
+                        <button type="submit" class="absolute right-1 px-4 py-1.5 text-[11px] font-medium tracking-wider uppercase text-white bg-brand hover:bg-brand-hover rounded-full transition shadow-xs">
                             Buscar
                         </button>
                     </div>
@@ -79,13 +79,13 @@
                     {{-- Search Loading Indicator --}}
                     <div x-show="searchLoading" class="p-3 text-center text-xs text-stone-500 flex items-center justify-center gap-2">
                         <svg class="animate-spin h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
-                        Buscando peças exclusivas...
+                        Buscando peças na Elisie...
                     </div>
 
                     {{-- Matching Categories --}}
                     <template x-if="searchResults.categories && searchResults.categories.length > 0">
                         <div class="p-3 bg-[#FAF8F5]">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400 px-2 block mb-1">Categorias Relacionadas</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400 px-2 block mb-1">Categorias Sugeridas</span>
                             <div class="flex flex-wrap gap-2">
                                 <template x-for="cat in searchResults.categories" :key="cat.slug">
                                     <a :href="'/categoria/' + cat.slug" class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white border border-stone-200 text-xs text-stone-700 hover:text-brand hover:border-brand transition">
@@ -100,16 +100,16 @@
                     {{-- Matching Products --}}
                     <template x-if="searchResults.products && searchResults.products.length > 0">
                         <div class="p-2 divide-y divide-stone-100">
-                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400 px-3 py-1 block">Peças Encontradas</span>
+                            <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400 px-3 py-1 block">Modelos Disponíveis</span>
                             <template x-for="item in searchResults.products" :key="item.id">
                                 <a :href="'/produto/' + item.slug" class="flex items-center gap-3 p-2.5 rounded-xl hover:bg-[#FAF8F5] transition group">
-                                    <img :src="item.images[0]" :alt="item.title" class="w-12 h-16 object-cover rounded-lg border border-stone-100">
+                                    <img :src="item.images[0]" :alt="item.title" class="w-12 h-16 object-cover object-top rounded-lg border border-stone-100">
                                     <div class="flex-1 min-w-0">
                                         <span class="text-[10px] text-stone-400 uppercase tracking-wider block truncate" x-text="item.category_name"></span>
                                         <h4 class="text-xs font-serif font-medium text-stone-800 group-hover:text-brand transition truncate" x-text="item.title"></h4>
                                         <div class="flex items-center gap-2 mt-0.5">
-                                            <span class="text-xs font-semibold text-stone-900" x-text="'R$ ' + Number(item.price).toLocaleString('pt-BR', {minimumFractionDigits: 2})"></span>
-                                            <span class="text-[10px] text-stone-500">ou até 6x s/ juros</span>
+                                            <span class="text-xs font-bold text-stone-900" x-text="'R$ ' + Number(item.price).toLocaleString('pt-BR', {minimumFractionDigits: 2})"></span>
+                                            <span class="text-[10px] text-brand font-semibold">5% OFF no Pix</span>
                                         </div>
                                     </div>
                                     <div class="text-stone-300 group-hover:text-brand transition pr-2">
@@ -122,7 +122,7 @@
 
                     {{-- Bottom Link --}}
                     <div class="p-2.5 bg-[#FAF8F5] text-center">
-                        <a :href="'/catalogo?busca=' + encodeURIComponent(searchQuery)" class="text-xs font-medium text-brand hover:underline inline-flex items-center gap-1">
+                        <a :href="'/catalogo?busca=' + encodeURIComponent(searchQuery)" class="text-xs font-semibold text-brand hover:underline inline-flex items-center gap-1">
                             Ver todos os resultados para "<span x-text="searchQuery"></span>" &rarr;
                         </a>
                     </div>
@@ -132,7 +132,7 @@
             {{-- Right Actions --}}
             <div class="flex items-center gap-4 sm:gap-6">
 
-                {{-- User Wishlist Heart --}}
+                {{-- Wishlist Heart --}}
                 <a href="#favoritos" class="hidden sm:flex text-stone-500 hover:text-brand transition p-1" title="Favoritos">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
                 </a>
@@ -147,18 +147,18 @@
                 <button
                     @click="$store.cart.open()"
                     type="button"
-                    class="relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-[#1C1917] hover:bg-brand text-white transition duration-300 shadow-xs cursor-pointer group"
+                    class="relative flex items-center gap-2 px-3 sm:px-4 py-2 rounded-full bg-brand hover:bg-brand-hover text-white transition duration-300 shadow-md cursor-pointer group"
                     title="Minha Sacola">
                     <div class="relative">
                         <svg class="w-4 h-4 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/></svg>
                         <span
                             x-show="$store.cart.count > 0"
                             x-text="$store.cart.count"
-                            class="absolute -top-2 -right-2 bg-brand text-white text-[9px] font-bold rounded-full h-4 w-4 flex items-center justify-center border-2 border-white ring-1 ring-black/10">
+                            class="absolute -top-2 -right-2 bg-white text-brand text-[9px] font-black rounded-full h-4 w-4 flex items-center justify-center border-2 border-brand shadow-xs">
                         </span>
                     </div>
                     <span class="hidden md:inline text-[11px] font-medium tracking-wider uppercase">Sacola</span>
-                    <span class="hidden lg:inline text-[11px] font-semibold text-stone-300" x-text="'• R$ ' + $store.cart.total.toLocaleString('pt-BR', {minimumFractionDigits: 2})"></span>
+                    <span class="hidden lg:inline text-[11px] font-semibold text-rose-100" x-text="'• R$ ' + $store.cart.total.toLocaleString('pt-BR', {minimumFractionDigits: 2})"></span>
                 </button>
             </div>
         </div>
@@ -169,9 +169,9 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-center gap-8 py-3 text-xs tracking-wider uppercase font-medium text-stone-600">
 
             <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
-               class="hover:text-brand transition text-[#8B5E3C] font-semibold flex items-center gap-1">
-                <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
-                Novidades & Lançamentos
+               class="hover:text-brand transition text-brand font-bold flex items-center gap-1.5">
+                <span class="w-1.5 h-1.5 rounded-full bg-brand animate-pulse"></span>
+                Nova Coleção
             </a>
 
             @foreach (\App\Services\EcommerceDataService::getCategories() as $cat)
@@ -182,7 +182,7 @@
             @endforeach
 
             <a href="{{ route('catalog.index', ['ordenacao' => 'desconto']) }}"
-               class="text-[#9F4958] font-bold hover:opacity-80 transition tracking-widest">
+               class="text-rose-700 font-bold hover:opacity-80 transition tracking-widest">
                 Special Sale
             </a>
         </div>

@@ -2,15 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-
 class OrderController extends Controller
 {
     public function show(string $code)
     {
-        $order = session('latest_order_' . $code);
+        $order = session('latest_order_'.$code);
 
-        if (!$order) {
+        if (! $order) {
             // Provide sensible fallback demo order for fashion store
             $order = [
                 'code' => $code,
@@ -28,7 +26,7 @@ class OrderController extends Controller
                         'quantity' => 1,
                         'variation' => 'Tamanho: M (40) | Cor: Off-White Linho',
                         'image' => 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80',
-                    ]
+                    ],
                 ],
                 'subtotal' => 489.90,
                 'discount' => 24.50,
@@ -41,7 +39,7 @@ class OrderController extends Controller
         }
 
         return view('pages.order-success', [
-            'order' => $order
+            'order' => $order,
         ]);
     }
 }

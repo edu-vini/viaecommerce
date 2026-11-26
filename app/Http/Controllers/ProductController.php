@@ -11,17 +11,17 @@ class ProductController extends Controller
     {
         $product = EcommerceDataService::findBySlug($slug);
 
-        if (!$product) {
+        if (! $product) {
             abort(404, 'Produto não encontrado');
         }
 
         $allProducts = EcommerceDataService::getProducts();
-        $relatedProducts = array_filter($allProducts, function($p) use ($product) {
+        $relatedProducts = array_filter($allProducts, function ($p) use ($product) {
             return $p['id'] !== $product['id'] && $p['category_slug'] === $product['category_slug'];
         });
 
         if (empty($relatedProducts)) {
-            $relatedProducts = array_filter($allProducts, fn($p) => $p['id'] !== $product['id']);
+            $relatedProducts = array_filter($allProducts, fn ($p) => $p['id'] !== $product['id']);
         }
 
         // Installments Table Calculation (up to 12x without interest)
@@ -32,7 +32,7 @@ class ProductController extends Controller
                 'times' => $i,
                 'value' => number_format($val, 2, ',', '.'),
                 'total' => number_format($product['price'], 2, ',', '.'),
-                'interest' => 'sem juros'
+                'interest' => 'sem juros',
             ];
         }
 
@@ -52,34 +52,34 @@ class ProductController extends Controller
 
         if (strlen($cep) !== 8) {
             return response()->json([
-                'error' => 'Por favor, informe um CEP válido com 8 dígitos.'
+                'error' => 'Por favor, informe um CEP válido com 8 dígitos.',
             ], 422);
         }
 
         // Simulated accurate Brazilian shipping calculations
         return response()->json([
-            'cep' => substr($cep, 0, 5) . '-' . substr($cep, 5),
+            'cep' => substr($cep, 0, 5).'-'.substr($cep, 5),
             'options' => [
                 [
                     'name' => 'Correios PAC',
                     'deadline' => '5 a 7 dias úteis',
                     'price' => 19.90,
-                    'price_formatted' => 'R$ 19,90'
+                    'price_formatted' => 'R$ 19,90',
                 ],
                 [
                     'name' => 'Correios Sedex',
                     'deadline' => '2 a 3 dias úteis',
                     'price' => 34.50,
-                    'price_formatted' => 'R$ 34,50'
+                    'price_formatted' => 'R$ 34,50',
                 ],
                 [
                     'name' => 'ViaExpress (Entrega Rápida)',
                     'deadline' => 'Até 24h úteis',
                     'price' => 45.00,
                     'price_formatted' => 'R$ 45,00',
-                    'badge' => 'Mais Rápido'
-                ]
-            ]
+                    'badge' => 'Mais Rápido',
+                ],
+            ],
         ]);
     }
 }

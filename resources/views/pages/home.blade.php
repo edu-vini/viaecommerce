@@ -3,42 +3,47 @@
 @section('content')
 <div class="space-y-16 pb-20">
 
-    {{-- Editorial Hero Section (Hadassa Braz Concept Style) --}}
+    {{-- Editorial Hero Section (Elisie Style) --}}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div class="relative overflow-hidden rounded-3xl bg-[#1C1917] text-white shadow-2xl min-h-[520px] flex items-center">
+        <div class="relative overflow-hidden rounded-3xl bg-[#720403] text-white shadow-2xl min-h-[520px] flex items-center">
             {{-- Background Editorial Image --}}
             <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80"
-                 alt="Hadassa Concept - Nova Coleção"
-                 class="absolute inset-0 w-full h-full object-cover object-center opacity-55">
+                 alt="Elisie Moda Feminina"
+                 class="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-overlay">
 
-            <div class="absolute inset-0 bg-gradient-to-r from-[#1C1917]/95 via-[#1C1917]/60 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#720403]/95 via-[#720403]/75 to-transparent"></div>
 
             <div class="relative z-20 px-6 sm:px-12 lg:px-16 py-16 sm:py-24 max-w-xl">
-                <span class="inline-block text-[10px] tracking-[0.3em] font-medium uppercase text-[#D4AF37] mb-3">
-                    Coleção Alto Verão &amp; Elegance
-                </span>
+                <div class="mb-4">
+                    <span class="font-script text-5xl sm:text-6xl text-white block leading-none">
+                        Elisie
+                    </span>
+                    <span class="text-[10px] tracking-[0.35em] uppercase text-rose-200/90 font-medium block mt-1">
+                        Moderna • Elegante • Modesta
+                    </span>
+                </div>
 
-                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.1] text-white">
-                    A Essência da Elegância Atemporal
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.15] text-white mt-4">
+                    A Essência da Mulher Virtuosa e Contemporânea
                 </h1>
 
-                <p class="mt-4 text-xs sm:text-sm text-stone-300 font-light leading-relaxed max-w-md">
-                    Vestidos midi com caimento nobre, alfaiataria impecável e conjuntos pensados para valorizar a modéstia e a sofisticação da mulher contemporânea.
+                <p class="mt-4 text-xs sm:text-sm text-rose-100/90 font-light leading-relaxed max-w-md">
+                    Vestidos midi com caimento nobre, alfaiataria fina e modelagens atemporais desenhadas para exaltar sua beleza com discrição, sofisticação e decência.
                 </p>
 
                 <div class="mt-8 flex flex-wrap items-center gap-4">
                     <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
-                       class="px-7 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white text-xs font-medium tracking-widest uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-md">
+                       class="px-8 py-3.5 rounded-full bg-white hover:bg-stone-100 text-[#720403] text-xs font-semibold tracking-widest uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg">
                         Explorar Lançamentos
                     </a>
                     <a href="{{ route('catalog.category', ['categorySlug' => 'vestidos-midi']) }}"
-                       class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-medium tracking-widest uppercase backdrop-blur-xs transition border border-white/30">
-                        Ver Vestidos Midi
+                       class="px-7 py-3.5 rounded-full bg-[#720403]/80 hover:bg-[#720403] text-white text-xs font-medium tracking-widest uppercase backdrop-blur-xs transition border border-white/30">
+                        Vestidos Midi
                     </a>
                 </div>
 
                 {{-- Fast perks --}}
-                <div class="mt-10 pt-6 border-t border-white/15 flex items-center gap-6 text-[11px] text-stone-300">
+                <div class="mt-10 pt-6 border-t border-white/20 flex items-center gap-6 text-[11px] text-rose-100">
                     <div class="flex items-center gap-2">
                         <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
                         <span>1ª Troca Grátis</span>
@@ -103,23 +108,27 @@
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FAF8F5] rounded-3xl p-8 sm:p-12 border border-stone-200">
             <div class="lg:col-span-7 space-y-4">
-                <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-brand">O Conceito Hadassa</span>
+                <div class="flex items-center gap-2">
+                    <span class="font-script text-3xl text-brand">Elisie</span>
+                    <span class="text-stone-300">|</span>
+                    <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-stone-500">Conceito &amp; Propósito</span>
+                </div>
                 <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 leading-tight font-normal">
-                    Modéstia &amp; Elegância: a harmonia perfeita em cada costura.
+                    Moderna. Elegante. Modesta.
                 </h2>
                 <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
-                    Nossas criações nascem do desejo de vestir mulheres reais com decência, graça e autoridade. Cada peça passa por uma curadoria minuciosa de modelagem para garantir conforto absoluto, tecidos de caimento nobre que não marcam e acabamentos de alfaiataria fina.
+                    A Elisie foi pensada para mulheres que não abrem mão de estarem bem vestidas em qualquer ocasião, unindo recato e bom gosto. Nossas peças priorizam tecidos de altíssima qualidade, forros confortáveis, caimentos impecáveis e modelagens que valorizam a postura e a feminilidade com delicadeza.
                 </p>
                 <div class="pt-4 flex flex-wrap items-center gap-4">
-                    <a href="{{ route('catalog.category', ['categorySlug' => 'alfaiataria']) }}" class="px-6 py-3 rounded-full bg-[#1C1917] hover:bg-brand text-white text-xs font-medium tracking-widest uppercase transition">
+                    <a href="{{ route('catalog.category', ['categorySlug' => 'alfaiataria']) }}" class="px-7 py-3 rounded-full bg-brand hover:bg-brand-hover text-white text-xs font-medium tracking-widest uppercase transition shadow-sm">
                         Conhecer Alfaiataria &rarr;
                     </a>
-                    <span class="text-xs text-stone-400 italic">"Vestir-se com virtude é expressar sua melhor essência."</span>
+                    <span class="text-xs text-stone-400 italic">"A verdadeira elegância está na sutileza dos detalhes."</span>
                 </div>
             </div>
-            <div class="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+            <div class="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg border border-stone-200">
                 <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80"
-                     alt="Conceito Hadassa"
+                     alt="Conceito Elisie"
                      class="w-full h-full object-cover">
             </div>
         </div>
@@ -147,27 +156,27 @@
     {{-- Instagram Lookbook Showcase --}}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="max-w-md mx-auto mb-8">
-            <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-brand block mb-1">#HadassaConcept</span>
-            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Inspirações no Lookbook</h2>
-            <p class="text-xs text-stone-500 mt-2 font-light">Siga nosso perfil e compartilhe seu look usando nossa hashtag oficial</p>
+            <span class="font-script text-2xl text-brand block">#EuUsoElisie</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Inspirações do Lookbook</h2>
+            <p class="text-xs text-stone-500 mt-2 font-light">Siga nosso perfil e compartilhe seu momento elegante com a hashtag oficial</p>
         </div>
 
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80" alt="Look Elisie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#720403]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-medium tracking-wider">Ver Peça</div>
             </div>
             <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80" alt="Look Elisie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#720403]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-medium tracking-wider">Ver Peça</div>
             </div>
             <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Look Elisie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#720403]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-medium tracking-wider">Ver Peça</div>
             </div>
             <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
-                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80" alt="Look Elisie" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-[#720403]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs uppercase font-medium tracking-wider">Ver Peça</div>
             </div>
         </div>
     </section>

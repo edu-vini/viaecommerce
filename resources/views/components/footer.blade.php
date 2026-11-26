@@ -1,6 +1,6 @@
 <footer class="bg-[#1C1917] text-stone-400 text-xs border-t border-stone-800 mt-20 font-light">
 
-    {{-- Trust Features Bar (Boutique Style) --}}
+    {{-- Trust Features Bar (Elisie Style) --}}
     <div class="border-b border-stone-800 py-10 bg-[#141211]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-6">
             <div class="flex items-center gap-3.5">
@@ -52,17 +52,17 @@
             {{-- Column 1: Brand Info --}}
             <div class="lg:col-span-2 space-y-4">
                 <div>
-                    <span class="font-serif text-2xl tracking-[0.2em] uppercase text-white block">Hadassa Braz</span>
-                    <span class="text-[9px] tracking-[0.45em] text-stone-500 font-semibold uppercase block">Concept Atelier</span>
+                    <span class="font-script text-4xl text-white block leading-none">Elisie</span>
+                    <span class="text-[9px] tracking-[0.25em] text-rose-300 font-semibold uppercase block mt-1">Moderna • Elegante • Modesta</span>
                 </div>
                 <p class="text-xs text-stone-400 max-w-sm leading-relaxed">
-                    Marca brasileira de moda feminina e executiva dedicada a exaltar a beleza, o recato e a identidade da mulher contemporânea através de peças elegantes, modelagens atemporais e tecidos nobres.
+                    Marca brasileira dedicada a exaltar a beleza, a virtude e a identidade da mulher contemporânea através de peças sofisticadas, vestidos midi nobres e acabamentos artesanais de alfaiataria.
                 </p>
 
                 {{-- VIP Club Newsletter --}}
                 <div class="pt-2">
-                    <span class="block text-xs font-semibold text-white mb-2 uppercase tracking-wider">Receba novidades e cupons exclusivos:</span>
-                    <form onsubmit="event.preventDefault(); alert('Obrigada por se cadastrar na lista VIP!');" class="flex gap-2 max-w-sm">
+                    <span class="block text-xs font-semibold text-white mb-2 uppercase tracking-wider">Lista VIP Elisie (Novidades &amp; Cupons):</span>
+                    <form onsubmit="event.preventDefault(); alert('Obrigada por se cadastrar na lista VIP Elisie!');" class="flex gap-2 max-w-sm">
                         <input type="email" placeholder="Seu melhor e-mail..." required class="flex-1 bg-stone-900 border border-stone-800 rounded-full px-4 py-2 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-brand">
                         <button type="submit" class="px-5 py-2 bg-brand hover:bg-brand-hover text-white text-xs uppercase tracking-wider font-semibold rounded-full transition">
                             Cadastrar
@@ -89,8 +89,8 @@
             <div>
                 <h6 class="text-xs font-semibold uppercase tracking-wider text-white mb-4" id="ajuda">Atendimento</h6>
                 <ul class="space-y-2.5">
-                    <li><a href="{{ route('order.show', ['code' => 'HB-9821']) }}" class="hover:text-white transition">Acompanhar meu Pedido</a></li>
-                    <li><a href="#" class="hover:text-white transition">Guia de Tamanhos & Medidas</a></li>
+                    <li><a href="{{ route('order.show', ['code' => 'EL-8291']) }}" class="hover:text-white transition">Acompanhar meu Pedido</a></li>
+                    <li><a href="#" class="hover:text-white transition">Guia de Tamanhos &amp; Medidas</a></li>
                     <li><a href="#" class="hover:text-white transition">Política de Trocas e Devoluções</a></li>
                     <li><a href="#" class="hover:text-white transition">Cuidados com suas Peças</a></li>
                     <li><a href="#" class="hover:text-white transition">Fale com uma Consultora</a></li>
@@ -119,7 +119,7 @@
 
         {{-- Bottom Copyright --}}
         <div class="border-t border-stone-800/80 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
-            <p>&copy; {{ date('Y') }} Hadassa Concept Boutique. Todos os direitos reservados. CNPJ: 00.123.456/0001-99.</p>
+            <p>&copy; {{ date('Y') }} Elisie Moda Feminina. Todos os direitos reservados. CNPJ: 00.123.456/0001-99.</p>
             <p>Plataforma Multi-Empresa ViaEcommerce com Laravel 11, Tailwind CSS e Docker.</p>
         </div>
     </div>
