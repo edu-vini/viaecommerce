@@ -11,18 +11,18 @@ Alpine.store('cart', {
 
     init() {
         if (this.items.length === 0) {
-            // Seed a realistic initial cart item for visual demonstration
+            // Seed a realistic fashion initial item
             this.items = [
                 {
                     id: 1,
-                    title: 'Smart TV 55" 4K UHD Crystal HDR',
-                    category: 'Eletrônicos',
-                    price: 2499.00,
-                    originalPrice: 2899.00,
-                    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?auto=format&fit=crop&w=600&q=80',
-                    variation: 'Voltagem: Bivolt',
+                    title: 'Vestido Midi Aurora em Linho com Cinto Faixa',
+                    category: 'Vestidos Midi',
+                    price: 489.90,
+                    originalPrice: 569.00,
+                    image: 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=800&q=80',
+                    variation: 'Tamanho: M | Cor: Off-White Linho',
                     quantity: 1,
-                    sku: 'TV-CRYSTAL-55'
+                    sku: 'VES-AURORA-M-OW'
                 }
             ];
             this.save();
@@ -64,7 +64,7 @@ Alpine.store('cart', {
         this.save();
         this.open();
         window.dispatchEvent(new CustomEvent('toast', {
-            detail: { message: `"${product.title}" adicionado ao carrinho!`, type: 'success' }
+            detail: { message: `"${product.title}" adicionado à sua sacola!`, type: 'success' }
         }));
     },
 
@@ -78,19 +78,19 @@ Alpine.store('cart', {
     },
 
     removeItem(index) {
-        const item = this.items[index];
         this.items.splice(index, 1);
         this.save();
         window.dispatchEvent(new CustomEvent('toast', {
-            detail: { message: `Item removido do carrinho.`, type: 'info' }
+            detail: { message: `Peça removida da sacola.`, type: 'info' }
         }));
     },
 
     applyCoupon(code) {
         const validCoupons = {
-            'BEMVINDO10': 10,
-            'PROMO15': 15,
-            'VIAECOMMERCE': 20
+            'BEMVINDA10': 10,
+            'HADASSA15': 15,
+            'PRIMEIRACOMPRA': 10,
+            'EXCLUSIVA20': 20
         };
         const upper = code.trim().toUpperCase();
         if (validCoupons[upper]) {

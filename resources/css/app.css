@@ -4,47 +4,67 @@
 @source '../../storage/framework/views/*.php';
 @source '../views/**/*.blade.php';
 
+@theme {
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
 :root {
-    --brand-primary: #2563eb;       /* Royal Blue */
-    --brand-primary-hover: #1d4ed8;
-    --brand-primary-light: #eff6ff;
-    --brand-secondary: #0f172a;     /* Deep Slate */
-    --brand-accent: #f59e0b;        /* Warm Gold */
-    --brand-accent-hover: #d97706;
-    --brand-gradient: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    /* Hadassa Concept / Boutique Warm Neutral Palette */
+    --brand-primary: #8b5e3c;          /* Caramelo / Terracota Suave */
+    --brand-primary-hover: #714a2d;
+    --brand-primary-light: #fbf8f5;    /* Off-White / Nude */
+    --brand-secondary: #1c1917;        /* Warm Dark Stone */
+    --brand-accent: #c48b58;           /* Dourado Suave / Champanhe */
+    --brand-accent-hover: #ab7343;
+    --brand-surface: #faf8f5;          /* Warm Ivory */
+    --brand-border: #e7dfd5;           /* Linho suave */
+    --brand-gradient: linear-gradient(135deg, #8b5e3c 0%, #684326 100%);
 }
 
-[data-theme="emerald"] {
-    --brand-primary: #059669;
-    --brand-primary-hover: #047857;
-    --brand-primary-light: #ecfdf5;
-    --brand-secondary: #064e3b;
-    --brand-accent: #f59e0b;
-    --brand-accent-hover: #d97706;
-    --brand-gradient: linear-gradient(135deg, #059669 0%, #047857 100%);
+[data-theme="noir"] {
+    --brand-primary: #18181b;          /* Preto Alta Costura */
+    --brand-primary-hover: #27272a;
+    --brand-primary-light: #fafafa;
+    --brand-secondary: #09090b;
+    --brand-accent: #a1a1aa;
+    --brand-accent-hover: #71717a;
+    --brand-surface: #fdfdfd;
+    --brand-border: #e4e4e7;
+    --brand-gradient: linear-gradient(135deg, #27272a 0%, #09090b 100%);
 }
 
-[data-theme="purple"] {
-    --brand-primary: #7c3aed;
-    --brand-primary-hover: #6d28d9;
-    --brand-primary-light: #f5f3ff;
-    --brand-secondary: #4c1d95;
-    --brand-accent: #ec4899;
-    --brand-accent-hover: #db2777;
-    --brand-gradient: linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%);
+[data-theme="rose"] {
+    --brand-primary: #9f4958;          /* Rosé Seco / Malva Nobre */
+    --brand-primary-hover: #833946;
+    --brand-primary-light: #fdf8f8;
+    --brand-secondary: #2c1a1f;
+    --brand-accent: #d89aa6;
+    --brand-accent-hover: #c47e8c;
+    --brand-surface: #fefafb;
+    --brand-border: #ebd9dc;
+    --brand-gradient: linear-gradient(135deg, #9f4958 0%, #76333f 100%);
 }
 
-[data-theme="sunset"] {
-    --brand-primary: #ea580c;
-    --brand-primary-hover: #c2410c;
-    --brand-primary-light: #fff7ed;
-    --brand-secondary: #7c2d12;
-    --brand-accent: #eab308;
-    --brand-accent-hover: #ca8a04;
-    --brand-gradient: linear-gradient(135deg, #ea580c 0%, #c2410c 100%);
+[data-theme="oliva"] {
+    --brand-primary: #4d5d43;          /* Verde Oliva Elegance */
+    --brand-primary-hover: #3d4a35;
+    --brand-primary-light: #f7f9f6;
+    --brand-secondary: #1d251a;
+    --brand-accent: #8b9d80;
+    --brand-accent-hover: #748669;
+    --brand-surface: #fafbfa;
+    --brand-border: #dde3d9;
+    --brand-gradient: linear-gradient(135deg, #4d5d43 0%, #35412e 100%);
 }
 
-/* Custom Utilities for Theme Variables */
+/* Custom Utilities for Boutique Palette */
+.font-serif {
+    font-family: var(--font-serif);
+}
+.font-sans {
+    font-family: var(--font-sans);
+}
 .bg-brand {
     background-color: var(--brand-primary);
 }
@@ -60,12 +80,23 @@
 .bg-brand-light {
     background-color: var(--brand-primary-light);
 }
+.bg-brand-surface {
+    background-color: var(--brand-surface);
+}
+.border-brand-soft {
+    border-color: var(--brand-border);
+}
 .bg-brand-gradient {
     background: var(--brand-gradient);
 }
 .focus-ring-brand:focus {
     outline: none;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.25);
+    box-shadow: 0 0 0 3px rgba(139, 94, 60, 0.2);
+}
+
+/* Fashion Lookbook Ratio */
+.aspect-fashion {
+    aspect-ratio: 3 / 4;
 }
 
 /* Smooth Horizontal Scrollbar for Carousels */
@@ -75,9 +106,4 @@
 .no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
-}
-
-/* Backdrop blur support */
-.drawer-backdrop {
-    backdrop-filter: blur(4px);
 }

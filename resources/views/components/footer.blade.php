@@ -1,72 +1,70 @@
-<footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 mt-20">
+<footer class="bg-[#1C1917] text-stone-400 text-xs border-t border-stone-800 mt-20 font-light">
 
-    {{-- Trust Features Bar --}}
-    <div class="border-b border-slate-800 py-8 bg-slate-950/40">
+    {{-- Trust Features Bar (Boutique Style) --}}
+    <div class="border-b border-stone-800 py-10 bg-[#141211]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-6">
             <div class="flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-2xl bg-blue-500/10 text-brand flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
+                <div class="w-10 h-10 rounded-full bg-white/5 text-[#D4AF37] flex items-center justify-center shrink-0 border border-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"/></svg>
                 </div>
                 <div>
-                    <h5 class="text-sm font-bold text-white">Frete Rápido & Seguro</h5>
-                    <p class="text-slate-400 text-xs">Entregas monitoradas para todo o Brasil</p>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Frete Grátis</h5>
+                    <p class="text-stone-400 text-[11px]">Nas compras acima de R$ 399 para todo o Brasil</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-2xl bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                <div class="w-10 h-10 rounded-full bg-white/5 text-[#D4AF37] flex items-center justify-center shrink-0 border border-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
                 </div>
                 <div>
-                    <h5 class="text-sm font-bold text-white">Pix com 5% de Desconto</h5>
-                    <p class="text-slate-400 text-xs">Aprovação imediata do seu pedido</p>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">1ª Troca Grátis</h5>
+                    <p class="text-stone-400 text-[11px]">Sem custos e sem burocracia em até 30 dias</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                <div class="w-10 h-10 rounded-full bg-white/5 text-[#D4AF37] flex items-center justify-center shrink-0 border border-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
                 </div>
                 <div>
-                    <h5 class="text-sm font-bold text-white">Devolução Grátis em 7 Dias</h5>
-                    <p class="text-slate-400 text-xs">Satisfação garantida ou seu dinheiro de volta</p>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">5% OFF no Pix</h5>
+                    <p class="text-stone-400 text-[11px]">Ou parcele em até 6x sem juros no cartão</p>
                 </div>
             </div>
 
             <div class="flex items-center gap-3.5">
-                <div class="w-11 h-11 rounded-2xl bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+                <div class="w-10 h-10 rounded-full bg-white/5 text-[#D4AF37] flex items-center justify-center shrink-0 border border-white/10">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/></svg>
                 </div>
                 <div>
-                    <h5 class="text-sm font-bold text-white">Suporte Humanizado</h5>
-                    <p class="text-slate-400 text-xs">Atendimento de Seg. a Sáb. das 8h às 20h</p>
+                    <h5 class="text-xs font-semibold uppercase tracking-wider text-white">Atendimento VIP</h5>
+                    <p class="text-stone-400 text-[11px]">Consultoria e suporte humanizado via WhatsApp</p>
                 </div>
             </div>
         </div>
     </div>
 
     {{-- Main Footer Links --}}
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
 
             {{-- Column 1: Brand Info --}}
             <div class="lg:col-span-2 space-y-4">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-8 h-8 rounded-xl bg-brand text-white flex items-center justify-center font-black text-lg">
-                        V
-                    </div>
-                    <span class="text-lg font-bold text-white">Via<span class="text-brand">Ecommerce</span></span>
+                <div>
+                    <span class="font-serif text-2xl tracking-[0.2em] uppercase text-white block">Hadassa Braz</span>
+                    <span class="text-[9px] tracking-[0.45em] text-stone-500 font-semibold uppercase block">Concept Atelier</span>
                 </div>
-                <p class="text-xs text-slate-400 max-w-sm leading-relaxed">
-                    A sua plataforma de e-commerce de ponta a ponta com catálogo selecionado, preços competitivos, logística ágil e máxima segurança transacional.
+                <p class="text-xs text-stone-400 max-w-sm leading-relaxed">
+                    Marca brasileira de moda feminina e executiva dedicada a exaltar a beleza, o recato e a identidade da mulher contemporânea através de peças elegantes, modelagens atemporais e tecidos nobres.
                 </p>
 
-                {{-- Newsletter --}}
+                {{-- VIP Club Newsletter --}}
                 <div class="pt-2">
-                    <span class="block text-xs font-semibold text-white mb-2">Receba cupons e lançamentos exclusivos:</span>
-                    <form onsubmit="event.preventDefault(); alert('Obrigado por se inscrever!');" class="flex gap-2 max-w-sm">
-                        <input type="email" placeholder="Seu melhor e-mail..." required class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand">
-                        <button type="submit" class="px-4 py-2 bg-brand hover:bg-brand-hover text-white text-xs font-bold rounded-xl transition">
+                    <span class="block text-xs font-semibold text-white mb-2 uppercase tracking-wider">Receba novidades e cupons exclusivos:</span>
+                    <form onsubmit="event.preventDefault(); alert('Obrigada por se cadastrar na lista VIP!');" class="flex gap-2 max-w-sm">
+                        <input type="email" placeholder="Seu melhor e-mail..." required class="flex-1 bg-stone-900 border border-stone-800 rounded-full px-4 py-2 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-brand">
+                        <button type="submit" class="px-5 py-2 bg-brand hover:bg-brand-hover text-white text-xs uppercase tracking-wider font-semibold rounded-full transition">
                             Cadastrar
                         </button>
                     </form>
@@ -75,8 +73,8 @@
 
             {{-- Column 2: Categorias --}}
             <div>
-                <h6 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Departamentos</h6>
-                <ul class="space-y-2">
+                <h6 class="text-xs font-semibold uppercase tracking-wider text-white mb-4">Coleção</h6>
+                <ul class="space-y-2.5">
                     @foreach (\App\Services\EcommerceDataService::getCategories() as $cat)
                         <li>
                             <a href="{{ route('catalog.category', ['categorySlug' => $cat['slug']]) }}" class="hover:text-white transition">
@@ -89,40 +87,40 @@
 
             {{-- Column 3: Atendimento & Ajuda --}}
             <div>
-                <h6 class="text-xs font-bold uppercase tracking-wider text-white mb-3" id="central-ajuda">Ajuda & Suporte</h6>
-                <ul class="space-y-2">
-                    <li><a href="{{ route('order.show', ['code' => 'DEMO123']) }}" class="hover:text-white transition">Acompanhar meu Pedido</a></li>
+                <h6 class="text-xs font-semibold uppercase tracking-wider text-white mb-4" id="ajuda">Atendimento</h6>
+                <ul class="space-y-2.5">
+                    <li><a href="{{ route('order.show', ['code' => 'HB-9821']) }}" class="hover:text-white transition">Acompanhar meu Pedido</a></li>
+                    <li><a href="#" class="hover:text-white transition">Guia de Tamanhos & Medidas</a></li>
                     <li><a href="#" class="hover:text-white transition">Política de Trocas e Devoluções</a></li>
-                    <li><a href="#" class="hover:text-white transition">Prazos e Formas de Entrega</a></li>
-                    <li><a href="#" class="hover:text-white transition">Segurança e Privacidade</a></li>
-                    <li><a href="#" class="hover:text-white transition">Fale Conosco / SAC</a></li>
+                    <li><a href="#" class="hover:text-white transition">Cuidados com suas Peças</a></li>
+                    <li><a href="#" class="hover:text-white transition">Fale com uma Consultora</a></li>
                 </ul>
             </div>
 
             {{-- Column 4: Pagamentos & Segurança --}}
             <div>
-                <h6 class="text-xs font-bold uppercase tracking-wider text-white mb-3">Formas de Pagamento</h6>
-                <div class="flex flex-wrap gap-2 text-[11px] text-slate-300">
-                    <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700 font-bold text-emerald-400">PIX (5% OFF)</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Cartão Visa</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Mastercard</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Elo</span>
-                    <span class="px-2.5 py-1 rounded bg-slate-800 border border-slate-700">Boleto</span>
+                <h6 class="text-xs font-semibold uppercase tracking-wider text-white mb-4">Pagamento Seguro</h6>
+                <div class="flex flex-wrap gap-2 text-[11px] text-stone-300">
+                    <span class="px-2.5 py-1 rounded bg-stone-900 border border-stone-800 text-[#D4AF37] font-semibold">PIX (5% OFF)</span>
+                    <span class="px-2.5 py-1 rounded bg-stone-900 border border-stone-800">Visa</span>
+                    <span class="px-2.5 py-1 rounded bg-stone-900 border border-stone-800">Mastercard</span>
+                    <span class="px-2.5 py-1 rounded bg-stone-900 border border-stone-800">Elo</span>
+                    <span class="px-2.5 py-1 rounded bg-stone-900 border border-stone-800">Boleto</span>
                 </div>
 
-                <h6 class="text-xs font-bold uppercase tracking-wider text-white mt-6 mb-2">Certificados de Segurança</h6>
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-emerald-950/60 border border-emerald-800 text-emerald-300 text-[11px]">
-                    <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
-                    <span>Criptografia SSL 256-bit</span>
+                <h6 class="text-xs font-semibold uppercase tracking-wider text-white mt-6 mb-2">Certificado de Segurança</h6>
+                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-stone-900 border border-stone-800 text-stone-300 text-[11px]">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                    <span>Ambiente Criptografado SSL 256-bit</span>
                 </div>
             </div>
 
         </div>
 
         {{-- Bottom Copyright --}}
-        <div class="border-t border-slate-800/80 mt-10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-slate-500 text-[11px]">
-            <p>&copy; {{ date('Y') }} ViaEcommerce Brasil S.A. Todos os direitos reservados. CNPJ: 00.123.456/0001-99.</p>
-            <p>Desenvolvido com arquitetura Laravel 11, Tailwind CSS e Docker.</p>
+        <div class="border-t border-stone-800/80 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
+            <p>&copy; {{ date('Y') }} Hadassa Concept Boutique. Todos os direitos reservados. CNPJ: 00.123.456/0001-99.</p>
+            <p>Plataforma Multi-Empresa ViaEcommerce com Laravel 11, Tailwind CSS e Docker.</p>
         </div>
     </div>
 </footer>

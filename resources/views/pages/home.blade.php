@@ -1,154 +1,139 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="space-y-12 pb-16">
+<div class="space-y-16 pb-20">
 
-    {{-- Hero Promotional Banner Section --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6">
-        <div class="relative overflow-hidden rounded-3xl bg-slate-900 text-white shadow-2xl border border-slate-800">
-            {{-- Background Gradient & Pattern --}}
-            <div class="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-900/90 to-transparent z-10"></div>
-            <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1600&q=80"
-                 alt="ViaEcommerce Ofertas Especiais"
-                 class="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-overlay">
+    {{-- Editorial Hero Section (Hadassa Braz Concept Style) --}}
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
+        <div class="relative overflow-hidden rounded-3xl bg-[#1C1917] text-white shadow-2xl min-h-[520px] flex items-center">
+            {{-- Background Editorial Image --}}
+            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1800&q=80"
+                 alt="Hadassa Concept - Nova Coleção"
+                 class="absolute inset-0 w-full h-full object-cover object-center opacity-55">
 
-            <div class="relative z-20 px-6 sm:px-12 lg:px-16 py-14 sm:py-20 max-w-2xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand/20 border border-brand/40 text-blue-300 text-xs font-bold uppercase tracking-wider mb-4 backdrop-blur-xs">
-                    <span class="w-2 h-2 rounded-full bg-brand animate-ping"></span>
-                    Semana de Tecnologia & Estilo
-                </div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#1C1917]/95 via-[#1C1917]/60 to-transparent"></div>
 
-                <h1 class="text-3xl sm:text-5xl font-black tracking-tight leading-tight sm:leading-none text-white">
-                    Tudo o que você ama com <span class="text-brand">até 40% OFF</span>
+            <div class="relative z-20 px-6 sm:px-12 lg:px-16 py-16 sm:py-24 max-w-xl">
+                <span class="inline-block text-[10px] tracking-[0.3em] font-medium uppercase text-[#D4AF37] mb-3">
+                    Coleção Alto Verão &amp; Elegance
+                </span>
+
+                <h1 class="font-serif text-3xl sm:text-5xl lg:text-6xl font-normal tracking-tight leading-[1.1] text-white">
+                    A Essência da Elegância Atemporal
                 </h1>
 
-                <p class="mt-4 text-sm sm:text-base text-slate-300 leading-relaxed max-w-lg">
-                    Aproveite as maiores ofertas em Smart TVs 4K, smartphones de última geração, notebooks gamers e calçados de alta performance. Parcele em até 12x sem juros ou ganhe 5% extra no Pix!
+                <p class="mt-4 text-xs sm:text-sm text-stone-300 font-light leading-relaxed max-w-md">
+                    Vestidos midi com caimento nobre, alfaiataria impecável e conjuntos pensados para valorizar a modéstia e a sofisticação da mulher contemporânea.
                 </p>
 
                 <div class="mt-8 flex flex-wrap items-center gap-4">
-                    <a href="{{ route('catalog.index', ['ordenacao' => 'desconto']) }}"
-                       class="px-6 py-3.5 rounded-xl bg-brand hover:bg-brand-hover text-white font-bold text-sm transition-all transform hover:-translate-y-0.5 shadow-lg shadow-blue-500/25 flex items-center gap-2">
-                        <span>Aproveitar Ofertas Agora</span>
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                    <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
+                       class="px-7 py-3.5 rounded-full bg-brand hover:bg-brand-hover text-white text-xs font-medium tracking-widest uppercase transition-all duration-300 transform hover:-translate-y-0.5 shadow-md">
+                        Explorar Lançamentos
                     </a>
-                    <a href="{{ route('catalog.index') }}"
-                       class="px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-sm backdrop-blur-xs transition border border-white/20">
-                        Ver Catálogo Completo
+                    <a href="{{ route('catalog.category', ['categorySlug' => 'vestidos-midi']) }}"
+                       class="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-medium tracking-widest uppercase backdrop-blur-xs transition border border-white/30">
+                        Ver Vestidos Midi
                     </a>
                 </div>
 
                 {{-- Fast perks --}}
-                <div class="mt-8 pt-6 border-t border-slate-800 flex items-center gap-6 text-xs text-slate-300">
+                <div class="mt-10 pt-6 border-t border-white/15 flex items-center gap-6 text-[11px] text-stone-300">
                     <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Frete Grátis > R$ 199</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
+                        <span>1ª Troca Grátis</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
-                        <span>Até 12x Sem Juros</span>
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
+                        <span>Em até 6x Sem Juros</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#D4AF37]"></span>
+                        <span>5% OFF no Pix</span>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {{-- Category Visual Grid / Cards --}}
+    {{-- Category Visual Department Grid --}}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Compre por Categoria</h2>
-                <p class="text-xs sm:text-sm text-slate-500">Explore os principais departamentos selecionados</p>
-            </div>
-            <a href="{{ route('catalog.index') }}" class="text-xs font-bold text-brand hover:underline flex items-center gap-1">
-                Ver Todas &rarr;
-            </a>
+        <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="text-[10px] tracking-[0.3em] font-medium uppercase text-stone-400 block mb-1">Departamentos Selecionados</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 tracking-tight">Compre por Categoria</h2>
+            <div class="w-12 h-0.5 bg-brand mx-auto mt-3"></div>
         </div>
 
-        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-5">
             @foreach ($categories as $cat)
                 <a href="{{ route('catalog.category', ['categorySlug' => $cat['slug']]) }}"
-                   class="group bg-white rounded-2xl p-3 border border-slate-200/80 hover:border-brand shadow-xs hover:shadow-lg transition-all text-center flex flex-col items-center">
-                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-xl overflow-hidden mb-3 bg-slate-100 group-hover:scale-105 transition-transform duration-300">
+                   class="group bg-white rounded-2xl p-3 border border-stone-200/80 hover:border-brand shadow-xs hover:shadow-lg transition-all text-center flex flex-col items-center">
+                    <div class="w-20 h-28 sm:w-24 sm:h-32 rounded-xl overflow-hidden mb-3 bg-[#FAF8F5] group-hover:scale-105 transition-transform duration-500">
                         <img src="{{ $cat['featured_image'] }}" alt="{{ $cat['name'] }}" class="w-full h-full object-cover">
                     </div>
-                    <h3 class="text-xs font-bold text-slate-800 group-hover:text-brand transition line-clamp-1">
+                    <h3 class="font-serif text-xs font-semibold text-stone-800 group-hover:text-brand transition line-clamp-1">
                         {{ $cat['name'] }}
                     </h3>
-                    <span class="text-[10px] text-slate-400 mt-0.5">{{ $cat['count'] }} produtos</span>
+                    <span class="text-[10px] text-stone-400 mt-0.5 tracking-wider uppercase">{{ $cat['count'] }} modelos</span>
                 </a>
             @endforeach
         </div>
     </section>
 
-    {{-- Lightning Deals Section (Ofertas Relâmpago com Contagem Regressiva) --}}
+    {{-- Highlight / Nova Coleção Grid --}}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="bg-gradient-to-r from-rose-900 via-rose-950 to-slate-900 rounded-3xl p-6 sm:p-8 text-white shadow-xl mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
+        <div class="flex flex-col sm:flex-row items-baseline justify-between mb-8 pb-4 border-b border-stone-200">
             <div>
-                <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-rose-500/30 text-rose-300 font-bold text-xs uppercase mb-2">
-                    <span class="w-2 h-2 rounded-full bg-rose-400 animate-pulse"></span>
-                    Ofertas Relâmpago do Dia
-                </div>
-                <h2 class="text-2xl sm:text-3xl font-black">Preços imperdíveis por tempo limitado</h2>
-                <p class="text-xs sm:text-sm text-rose-200/80 mt-1">Descontos que expiram ao fim da contagem. Não deixe para depois!</p>
+                <span class="text-[10px] tracking-[0.25em] font-medium uppercase text-brand block mb-1">Destaques da Temporada</span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Lançamentos Exclusivos</h2>
             </div>
-
-            {{-- Countdown Timer --}}
-            <div class="flex items-center gap-2 sm:gap-3 bg-black/40 backdrop-blur-md p-3 rounded-2xl border border-white/10"
-                 x-data="{
-                    hours: 7,
-                    minutes: 42,
-                    seconds: 18,
-                    init() {
-                        setInterval(() => {
-                            if (this.seconds > 0) {
-                                this.seconds--;
-                            } else {
-                                this.seconds = 59;
-                                if (this.minutes > 0) {
-                                    this.minutes--;
-                                } else {
-                                    this.minutes = 59;
-                                    if (this.hours > 0) this.hours--;
-                                }
-                            }
-                        }, 1000);
-                    }
-                 }">
-                <div class="text-center px-2">
-                    <span class="block text-xl sm:text-2xl font-black text-rose-400 font-mono" x-text="String(hours).padStart(2, '0')"></span>
-                    <span class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Horas</span>
-                </div>
-                <span class="text-xl font-bold text-rose-400">:</span>
-                <div class="text-center px-2">
-                    <span class="block text-xl sm:text-2xl font-black text-rose-400 font-mono" x-text="String(minutes).padStart(2, '0')"></span>
-                    <span class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Min</span>
-                </div>
-                <span class="text-xl font-bold text-rose-400">:</span>
-                <div class="text-center px-2">
-                    <span class="block text-xl sm:text-2xl font-black text-rose-400 font-mono" x-text="String(seconds).padStart(2, '0')"></span>
-                    <span class="text-[9px] uppercase tracking-wider text-slate-400 font-semibold">Seg</span>
-                </div>
-            </div>
+            <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}" class="text-xs tracking-wider uppercase font-semibold text-stone-600 hover:text-brand transition flex items-center gap-1 mt-2 sm:mt-0">
+                Ver Toda a Coleção &rarr;
+            </a>
         </div>
 
-        {{-- Deals Carousel / Grid --}}
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach ($deals as $product)
+            @foreach ($newArrivals as $product)
                 <x-product-card :product="$product" />
             @endforeach
         </div>
     </section>
 
-    {{-- Best Sellers Carousel / Section (Mais Vendidos) --}}
+    {{-- Concept Editorial Split Banner (Brand Philosophy) --}}
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Mais Vendidos da Semana</h2>
-                <p class="text-xs sm:text-sm text-slate-500">Os produtos mais bem avaliados pelos nossos clientes</p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FAF8F5] rounded-3xl p-8 sm:p-12 border border-stone-200">
+            <div class="lg:col-span-7 space-y-4">
+                <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-brand">O Conceito Hadassa</span>
+                <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 leading-tight font-normal">
+                    Modéstia &amp; Elegância: a harmonia perfeita em cada costura.
+                </h2>
+                <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
+                    Nossas criações nascem do desejo de vestir mulheres reais com decência, graça e autoridade. Cada peça passa por uma curadoria minuciosa de modelagem para garantir conforto absoluto, tecidos de caimento nobre que não marcam e acabamentos de alfaiataria fina.
+                </p>
+                <div class="pt-4 flex flex-wrap items-center gap-4">
+                    <a href="{{ route('catalog.category', ['categorySlug' => 'alfaiataria']) }}" class="px-6 py-3 rounded-full bg-[#1C1917] hover:bg-brand text-white text-xs font-medium tracking-widest uppercase transition">
+                        Conhecer Alfaiataria &rarr;
+                    </a>
+                    <span class="text-xs text-stone-400 italic">"Vestir-se com virtude é expressar sua melhor essência."</span>
+                </div>
             </div>
-            <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}" class="text-xs font-bold text-brand hover:underline flex items-center gap-1">
-                Ver Todos &rarr;
+            <div class="lg:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden shadow-lg">
+                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=1000&q=80"
+                     alt="Conceito Hadassa"
+                     class="w-full h-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    {{-- Best Sellers (Os Mais Desejados) --}}
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col sm:flex-row items-baseline justify-between mb-8 pb-4 border-b border-stone-200">
+            <div>
+                <span class="text-[10px] tracking-[0.25em] font-medium uppercase text-brand block mb-1">Favoritos das Clientes</span>
+                <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Os Mais Desejados</h2>
+            </div>
+            <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}" class="text-xs tracking-wider uppercase font-semibold text-stone-600 hover:text-brand transition flex items-center gap-1 mt-2 sm:mt-0">
+                Ver Mais Desejados &rarr;
             </a>
         </div>
 
@@ -159,55 +144,31 @@
         </div>
     </section>
 
-    {{-- Interactive Promotional Split Banner --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-900 to-indigo-950 text-white p-8 sm:p-10 flex flex-col justify-between shadow-lg">
-                <div class="relative z-10 max-w-sm">
-                    <span class="inline-block px-3 py-1 rounded-full bg-blue-500/30 text-blue-300 text-[11px] font-bold uppercase tracking-wider mb-2">Linha Gamer Pro</span>
-                    <h3 class="text-2xl sm:text-3xl font-black leading-tight">Notebooks & Monitores UltraWide</h3>
-                    <p class="text-xs sm:text-sm text-blue-200 mt-2">Taxas de 165Hz e placas de vídeo RTX para quem não aceita perder nenhum frame.</p>
-                </div>
-                <div class="relative z-10 mt-6">
-                    <a href="{{ route('catalog.category', ['categorySlug' => 'informatica']) }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-xs hover:bg-blue-50 transition shadow-sm">
-                        Conferir Linha Gamer &rarr;
-                    </a>
-                </div>
-                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80" alt="Gamer" class="absolute -right-10 -bottom-10 w-64 h-64 object-cover rounded-full opacity-30 pointer-events-none">
-            </div>
-
-            <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-emerald-900 to-teal-950 text-white p-8 sm:p-10 flex flex-col justify-between shadow-lg">
-                <div class="relative z-10 max-w-sm">
-                    <span class="inline-block px-3 py-1 rounded-full bg-emerald-500/30 text-emerald-300 text-[11px] font-bold uppercase tracking-wider mb-2">Casa & Conforto</span>
-                    <h3 class="text-2xl sm:text-3xl font-black leading-tight">Cafeteiras Italianas & Smart Home</h3>
-                    <p class="text-xs sm:text-sm text-emerald-200 mt-2">Transforme seu dia a dia com aroma de café fresco em grãos moídos na hora.</p>
-                </div>
-                <div class="relative z-10 mt-6">
-                    <a href="{{ route('catalog.category', ['categorySlug' => 'casa-inteligente']) }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white text-slate-900 font-bold text-xs hover:bg-emerald-50 transition shadow-sm">
-                        Conferir Eletrodomésticos &rarr;
-                    </a>
-                </div>
-                <img src="https://images.unsplash.com/photo-1517668808822-9ebb02f2a0e6?auto=format&fit=crop&w=600&q=80" alt="Cafeteira" class="absolute -right-10 -bottom-10 w-64 h-64 object-cover rounded-full opacity-30 pointer-events-none">
-            </div>
-        </div>
-    </section>
-
-    {{-- New Arrivals Carousel / Section (Lançamentos) --}}
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-6">
-            <div>
-                <h2 class="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">Lançamentos Recentes</h2>
-                <p class="text-xs sm:text-sm text-slate-500">As últimas novidades do mercado adicionadas ao catálogo</p>
-            </div>
-            <a href="{{ route('catalog.index') }}" class="text-xs font-bold text-brand hover:underline flex items-center gap-1">
-                Ver Todos &rarr;
-            </a>
+    {{-- Instagram Lookbook Showcase --}}
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div class="max-w-md mx-auto mb-8">
+            <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-brand block mb-1">#HadassaConcept</span>
+            <h2 class="font-serif text-2xl sm:text-3xl text-stone-900 font-normal">Inspirações no Lookbook</h2>
+            <p class="text-xs text-stone-500 mt-2 font-light">Siga nosso perfil e compartilhe seu look usando nossa hashtag oficial</p>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            @foreach ($newArrivals as $product)
-                <x-product-card :product="$product" />
-            @endforeach
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
+                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+            </div>
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
+                <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+            </div>
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
+                <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+            </div>
+            <div class="aspect-[3/4] rounded-2xl overflow-hidden group relative">
+                <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&w=600&q=80" alt="Look" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white text-xs font-medium">Ver Peça</div>
+            </div>
         </div>
     </section>
 

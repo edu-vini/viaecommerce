@@ -10,9 +10,10 @@ class EcommerceVisualTest extends TestCase
     {
         $response = $this->get('/');
         $response->assertStatus(200);
-        $response->assertSee('ViaEcommerce');
-        $response->assertSee('Ofertas Relâmpago do Dia');
-        $response->assertSee('Mais Vendidos da Semana');
+        $response->assertSee('Hadassa Braz');
+        $response->assertSee('Concept Atelier');
+        $response->assertSee('Lançamentos Exclusivos');
+        $response->assertSee('Os Mais Desejados');
         $response->assertSee('Compre por Categoria');
     }
 
@@ -20,17 +21,17 @@ class EcommerceVisualTest extends TestCase
     {
         $response = $this->get('/catalogo');
         $response->assertStatus(200);
-        $response->assertSee('Catálogo');
-        $response->assertSee('Filtrar Resultados');
+        $response->assertSee('Coleção');
+        $response->assertSee('Filtrar Coleção');
 
-        $filtered = $this->get('/categoria/eletronicos');
+        $filtered = $this->get('/categoria/vestidos-midi');
         $filtered->assertStatus(200);
-        $filtered->assertSee('Eletrônicos & Smart TVs');
+        $filtered->assertSee('Vestidos Midi');
     }
 
     public function test_predictive_search_api_returns_json(): void
     {
-        $response = $this->getJson('/api/busca-preditiva?q=smart');
+        $response = $this->getJson('/api/busca-preditiva?q=vestido');
         $response->assertStatus(200);
         $response->assertJsonStructure([
             'products',
@@ -40,12 +41,12 @@ class EcommerceVisualTest extends TestCase
 
     public function test_pdp_page_loads_with_gallery_and_variations(): void
     {
-        $response = $this->get('/produto/smart-tv-55-4k-uhd-crystal-hdr');
+        $response = $this->get('/produto/vestido-midi-aurora-linho-puro');
         $response->assertStatus(200);
-        $response->assertSee('Smart TV 55" 4K UHD Crystal HDR com Alexa');
-        $response->assertSee('Adicionar ao Carrinho');
-        $response->assertSee('Simular Frete');
-        $response->assertSeeText('Ficha Técnica & Especificações');
+        $response->assertSee('Vestido Midi Aurora em Linho Puro com Cinto Faixa');
+        $response->assertSee('Adicionar à Sacola');
+        $response->assertSee('Tabela de Medidas');
+        $response->assertSeeText('Ficha Técnica & Cuidados');
     }
 
     public function test_shipping_calculation_api(): void
@@ -64,8 +65,8 @@ class EcommerceVisualTest extends TestCase
     {
         $response = $this->get('/carrinho');
         $response->assertStatus(200);
-        $response->assertSee('Carrinho de Compras');
-        $response->assertSee('Resumo do Pedido');
+        $response->assertSee('Sacola de Compras');
+        $response->assertSee('Resumo da Sacola');
     }
 
     public function test_checkout_page_loads_successfully(): void
@@ -73,7 +74,7 @@ class EcommerceVisualTest extends TestCase
         $response = $this->get('/checkout');
         $response->assertStatus(200);
         $response->assertSee('Checkout Seguro');
-        $response->assertSee('Identificação do Comprador');
+        $response->assertSee('Seus Dados Pessoais');
     }
 
     public function test_order_success_page_loads_with_timeline_and_pix(): void
@@ -81,7 +82,7 @@ class EcommerceVisualTest extends TestCase
         $response = $this->get('/pedido/DEMO123');
         $response->assertStatus(200);
         $response->assertSee('Pedido Recebido com Sucesso!');
-        $response->assertSee('Aguardando Pagamento');
+        $response->assertSee('Aguardando Pix');
         $response->assertSee('Chave Pix Copia e Cola');
     }
 }
