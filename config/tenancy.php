@@ -28,7 +28,7 @@ return [
      */
     'central_domains' => array_filter(array_map('trim', explode(',', env(
         'TENANCY_CENTRAL_DOMAINS',
-        '127.0.0.1,localhost,viasolutions.com.br,app.viasolutions.com.br'
+        '127.0.0.1,localhost,viasolutions.com.br,app.viasolutions.com.br,ecommerce.viasolutions.com.br'
     )))),
 
     /**

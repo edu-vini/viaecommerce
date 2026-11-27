@@ -128,6 +128,10 @@ class MultiTenancyAndSuperAdminTest extends TestCase
             ->assertStatus(200);
 
         $this->actingAs($this->superAdmin)
+            ->get('http://ecommerce.viasolutions.com.br/superadmin')
+            ->assertStatus(200);
+
+        $this->actingAs($this->superAdmin)
             ->get('http://localhost/superadmin/tenants')
             ->assertStatus(200)
             ->assertSee('Elisie Concept');
