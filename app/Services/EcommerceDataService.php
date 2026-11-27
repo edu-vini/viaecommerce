@@ -2,9 +2,53 @@
 
 namespace App\Services;
 
+use App\Models\Banner;
+use App\Models\Category;
+use App\Models\Product;
+use Illuminate\Support\Facades\Cache;
+
 class EcommerceDataService
 {
+    protected static function tenantCacheKey(string $key): string
+    {
+        return (tenant('id') ?? 'central').'.'.$key;
+    }
+
+    protected static function shouldUseElisieStaticFallback(): bool
+    {
+        return ! tenancy()->initialized || tenant('id') === 'elisie';
+    }
+
     public static function getCategories(): array
+    {
+        return Cache::remember(static::tenantCacheKey('ecommerce.categories'), 3600, function () {
+            try {
+                $dbCategories = Category::where('is_active', true)
+                    ->withCount('products')
+                    ->orderBy('sort_order')
+                    ->get();
+
+                if ($dbCategories->isNotEmpty()) {
+                    return $dbCategories->map(fn ($cat) => [
+                        'id' => $cat->id,
+                        'name' => $cat->name,
+                        'slug' => $cat->slug,
+                        'icon' => $cat->icon ?? 'sparkles',
+                        'description' => $cat->description,
+                        'count' => $cat->products_count ?: 12,
+                        'featured_image' => $cat->image
+                            ? (str_starts_with($cat->image, 'http') ? $cat->image : asset('storage/'.$cat->image))
+                            : 'https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=500&q=75',
+                    ])->toArray();
+                }
+            } catch (\Throwable $e) {
+            }
+
+            return static::shouldUseElisieStaticFallback() ? static::getDefaultCategories() : [];
+        });
+    }
+
+    public static function getDefaultCategories(): array
     {
         return [
             [
@@ -65,6 +109,94 @@ class EcommerceDataService
     }
 
     public static function getProducts(): array
+    {
+        return Cache::remember(static::tenantCacheKey('ecommerce.products'), 3600, function () {
+            try {
+                $dbProducts = Product::where('is_active', true)
+                    ->with(['category', 'variations'])
+                    ->get();
+
+                if ($dbProducts->isNotEmpty()) {
+                    return $dbProducts->map(function ($prod) {
+                        $images = is_array($prod->images) ? array_map(function ($img) {
+                            return str_starts_with($img, 'http') ? $img : asset('storage/'.$img);
+                        }, $prod->images) : [];
+
+                        if (empty($images)) {
+                            $images = ['https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&w=700&q=75'];
+                        }
+
+                        $options = $prod->variations->map(fn ($v) => [
+                            'label' => $v->label,
+                            'sku' => $v->sku ?: "{$prod->sku}-{$v->label}",
+                            'price_delta' => (float) $v->price_delta,
+                            'stock' => (int) $v->stock,
+                        ])->toArray();
+
+                        if (empty($options)) {
+                            $options = [
+                                ['label' => 'P (38)', 'sku' => "{$prod->sku}-P", 'price_delta' => 0, 'stock' => 5],
+                                ['label' => 'M (40)', 'sku' => "{$prod->sku}-M", 'price_delta' => 0, 'stock' => 5],
+                                ['label' => 'G (42)', 'sku' => "{$prod->sku}-G", 'price_delta' => 0, 'stock' => 5],
+                            ];
+                        }
+
+                        return [
+                            'id' => $prod->id,
+                            'title' => $prod->title,
+                            'slug' => $prod->slug,
+                            'category_slug' => $prod->category?->slug ?? 'moda-feminina',
+                            'category_name' => $prod->category?->name ?? 'Moda Feminina',
+                            'brand' => $prod->brand ?: 'Elisie',
+                            'badge' => $prod->badge,
+                            'price' => (float) $prod->price,
+                            'original_price' => $prod->original_price ? (float) $prod->original_price : null,
+                            'rating' => (float) $prod->rating,
+                            'reviews_count' => (int) $prod->reviews_count,
+                            'installments' => 6,
+                            'installment_value' => round($prod->price / 6, 2),
+                            'pix_discount_percent' => 5,
+                            'is_featured' => (bool) $prod->is_featured,
+                            'is_best_seller' => (bool) $prod->is_best_seller,
+                            'is_new' => (bool) $prod->is_new,
+                            'is_deal' => (bool) $prod->is_deal,
+                            'stock' => (int) $prod->stock,
+                            'model_info' => $prod->model_info ?: 'A modelo mede 1,73m e veste tamanho P.',
+                            'images' => $images,
+                            'colors' => is_array($prod->colors) && ! empty($prod->colors) ? $prod->colors : [
+                                ['name' => 'Bordeaux Nobre', 'hex' => '#720403'],
+                                ['name' => 'Off-White Linho', 'hex' => '#F4EFEB'],
+                            ],
+                            'variations' => [
+                                'type' => $prod->variations->first()?->type ?: 'Tamanho',
+                                'options' => $options,
+                            ],
+                            'measurement_table' => is_array($prod->measurement_table) && ! empty($prod->measurement_table)
+                                ? $prod->measurement_table
+                                : [
+                                    ['size' => 'P (38)', 'bust' => '88-92 cm', 'waist' => '68-72 cm', 'hip' => '96-100 cm', 'length' => '119 cm'],
+                                    ['size' => 'M (40)', 'bust' => '92-96 cm', 'waist' => '72-76 cm', 'hip' => '100-104 cm', 'length' => '120 cm'],
+                                    ['size' => 'G (42)', 'bust' => '96-102 cm', 'waist' => '76-82 cm', 'hip' => '104-110 cm', 'length' => '121 cm'],
+                                ],
+                            'summary' => $prod->summary ?: 'Peça exclusiva com acabamento nobre e modelagem refinada.',
+                            'description' => $prod->description ?: 'Confeccionada com os mais nobres tecidos, oferecendo caimento impecável e elegância atemporal.',
+                            'specifications' => is_array($prod->specifications) && ! empty($prod->specifications)
+                                ? $prod->specifications
+                                : [
+                                    'Tecido' => 'Tecido Nobre Selecionado',
+                                    'Forro' => 'Forro suave hipoalergênico',
+                                ],
+                        ];
+                    })->toArray();
+                }
+            } catch (\Throwable $e) {
+            }
+
+            return static::shouldUseElisieStaticFallback() ? static::getDefaultProducts() : [];
+        });
+    }
+
+    public static function getDefaultProducts(): array
     {
         return [
             [
@@ -520,5 +652,59 @@ class EcommerceDataService
         }
 
         return null;
+    }
+
+    public static function getBanners(?string $position = null): array
+    {
+        $cacheKey = static::tenantCacheKey('ecommerce.banners.'.($position ?? 'all'));
+
+        return Cache::remember($cacheKey, 3600, function () use ($position) {
+            try {
+                $query = Banner::where('is_active', true)->orderBy('sort_order');
+                if ($position) {
+                    $query->where('position', $position);
+                }
+                $banners = $query->get();
+                if ($banners->isNotEmpty()) {
+                    return $banners->map(fn ($b) => [
+                        'id' => $b->id,
+                        'title' => $b->title,
+                        'subtitle' => $b->subtitle,
+                        'badge' => $b->badge,
+                        'image' => $b->image_url,
+                        'button_text' => $b->button_text,
+                        'button_link' => $b->button_link,
+                        'position' => $b->position,
+                    ])->toArray();
+                }
+            } catch (\Throwable $e) {
+            }
+
+            if (! static::shouldUseElisieStaticFallback()) {
+                return [];
+            }
+
+            return [
+                [
+                    'id' => 1,
+                    'title' => 'Coleção Aurora 2026: A Pureza do Linho & Ouro',
+                    'subtitle' => 'Peças fluidas confeccionadas em pura fibra natural, modelagens modestas que valorizam a postura com sofisticação atemporal.',
+                    'badge' => 'ALTA COSTURA AUTORAL',
+                    'image' => 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=75',
+                    'button_text' => 'Descobrir Coleção',
+                    'button_link' => '/catalogo',
+                    'position' => 'home_hero',
+                ],
+            ];
+        });
+    }
+
+    public static function clearCache(): void
+    {
+        Cache::forget(static::tenantCacheKey('ecommerce.categories'));
+        Cache::forget(static::tenantCacheKey('ecommerce.products'));
+        Cache::forget(static::tenantCacheKey('ecommerce.banners.all'));
+        Cache::forget(static::tenantCacheKey('ecommerce.banners.home_hero'));
+        Cache::forget(static::tenantCacheKey('ecommerce.banners.home_featured'));
     }
 }

@@ -52,17 +52,20 @@
             {{-- Column 1: Brand Info --}}
             <div class="lg:col-span-2 space-y-4">
                 <div class="flex flex-col items-start">
-                    <img src="{{ asset('images/elisie-logo-white.png') }}" alt="Elisie" class="h-10 sm:h-12 w-auto object-contain">
-                    <span class="text-[9px] tracking-[0.25em] text-rose-300 font-semibold uppercase block mt-1.5">Moderna • Elegante • Modesta</span>
+                    <x-logo variant="white" class="h-10 sm:h-12 w-auto" />
                 </div>
                 <p class="text-xs text-stone-400 max-w-sm leading-relaxed">
-                    Marca brasileira dedicada a exaltar a beleza, a virtude e a identidade da mulher contemporânea através de peças sofisticadas, vestidos midi nobres e acabamentos artesanais de alfaiataria.
+                    @if (tenant('id') === 'elisie')
+                        {{ (isset($storeSetting) && $storeSetting ? $storeSetting->store_name : 'Elisie') }} — Marca dedicada a exaltar a beleza, virtude e identidade da mulher contemporânea através de peças sofisticadas, vestidos midi nobres e acabamentos de alfaiataria.
+                    @else
+                        {{ (isset($storeSetting) && $storeSetting ? $storeSetting->store_name : (tenant('name') ?? 'Via Solutions')) }} — {{ (isset($storeSetting) && $storeSetting && $storeSetting->slogan ? $storeSetting->slogan : 'Loja virtual oficial com tecnologia e segurança Via Solutions.') }}
+                    @endif
                 </p>
 
                 {{-- VIP Club Newsletter --}}
                 <div class="pt-2">
-                    <span class="block text-xs font-semibold text-white mb-2 uppercase tracking-wider">Lista VIP Elisie (Novidades &amp; Cupons):</span>
-                    <form onsubmit="event.preventDefault(); alert('Obrigada por se cadastrar na lista VIP Elisie!');" class="flex gap-2 max-w-sm">
+                    <span class="block text-xs font-semibold text-white mb-2 uppercase tracking-wider">Lista VIP (Novidades &amp; Cupons):</span>
+                    <form onsubmit="event.preventDefault(); alert('Obrigada por se cadastrar na lista VIP!');" class="flex gap-2 max-w-sm">
                         <input type="email" placeholder="Seu melhor e-mail..." required class="flex-1 bg-stone-900 border border-stone-800 px-4 py-2 text-xs text-white placeholder-stone-500 focus:outline-none focus:border-brand">
                         <button type="submit" class="px-5 py-2 bg-brand hover:bg-brand-hover text-white text-xs uppercase tracking-wider font-semibold transition">
                             Cadastrar
@@ -85,15 +88,21 @@
                 </ul>
             </div>
 
-            {{-- Column 3: Atendimento & Ajuda --}}
+            {{-- Column 3: Atendimento & Contato --}}
             <div>
                 <h6 class="text-xs font-semibold uppercase tracking-wider text-white mb-4" id="ajuda">Atendimento</h6>
                 <ul class="space-y-2.5">
-                    <li><a href="{{ route('order.show', ['code' => 'EL-8291']) }}" class="hover:text-white transition">Acompanhar meu Pedido</a></li>
-                    <li><a href="#" class="hover:text-white transition">Guia de Tamanhos &amp; Medidas</a></li>
-                    <li><a href="#" class="hover:text-white transition">Política de Trocas e Devoluções</a></li>
-                    <li><a href="#" class="hover:text-white transition">Cuidados com suas Peças</a></li>
-                    <li><a href="#" class="hover:text-white transition">Fale com uma Consultora</a></li>
+                    @if(isset($storeSetting) && $storeSetting && $storeSetting->contact_phone)
+                        <li><span class="text-stone-300 font-medium">Tel:</span> {{ $storeSetting->contact_phone }}</li>
+                    @endif
+                    @if(isset($storeSetting) && $storeSetting && $storeSetting->contact_email)
+                        <li><span class="text-stone-300 font-medium">E-mail:</span> {{ $storeSetting->contact_email }}</li>
+                    @endif
+                    @if(isset($storeSetting) && $storeSetting && $storeSetting->social_instagram)
+                        <li><a href="https://instagram.com/{{ ltrim($storeSetting->social_instagram, '@') }}" target="_blank" class="hover:text-white transition text-[#D4AF37]">Instagram: {{ $storeSetting->social_instagram }}</a></li>
+                    @endif
+                    <li><a href="{{ route('order.show', ['code' => 'EL-8291']) }}" class="hover:text-white transition">Acompanhar Pedido</a></li>
+                    <li><a href="/admin" class="hover:text-white transition text-amber-400 font-semibold">→ Painel Administrativo</a></li>
                 </ul>
             </div>
 
@@ -119,8 +128,8 @@
 
         {{-- Bottom Copyright --}}
         <div class="border-t border-stone-800/80 mt-12 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-stone-500 text-[11px]">
-            <p>&copy; {{ date('Y') }} Elisie Moda Feminina. Todos os direitos reservados. CNPJ: 00.123.456/0001-99.</p>
-            <p>Plataforma Multi-Empresa ViaEcommerce com Laravel 11, Tailwind CSS e Docker.</p>
+            <p>&copy; {{ date('Y') }} {{ (isset($storeSetting) && $storeSetting ? $storeSetting->store_name : (tenant('name') ?? 'Via Solutions')) }}. Todos os direitos reservados.</p>
+            <p>Plataforma Multi-Empresa Via Solutions.</p>
         </div>
     </div>
 </footer>

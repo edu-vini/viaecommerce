@@ -14,10 +14,11 @@ RUN apk update && apk add --no-cache \
     oniguruma-dev \
     nodejs \
     npm \
+    icu-dev \
     linux-headers \
     $PHPIZE_DEPS
 
-# Configurar e instalar extensões GD, PDO MySQL, bcmath, mbstring, zip, exif, pcntl
+# Configurar e instalar extensões GD, PDO MySQL, bcmath, mbstring, zip, exif, pcntl, intl
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
     && docker-php-ext-install -j$(nproc) \
         pdo_mysql \
@@ -27,6 +28,7 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg \
         bcmath \
         gd \
         zip \
+        intl \
         opcache
 
 # Instalar Redis via PECL

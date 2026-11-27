@@ -8,7 +8,11 @@ services:
     working_dir: /var/www/html
     volumes:
       - ./:/var/www/html
+      - via_ecommerce_vendor:/var/www/html/vendor
+      - via_ecommerce_views:/var/www/html/storage/framework/views
       - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+      - ./docker/php/zzz-performance.conf:/usr/local/etc/php-fpm.d/zzz-performance.conf
+      - ./docker/php/preload.php:/usr/local/etc/php/preload.php
     environment:
       - APP_NAME=ViaEcommerce
       - APP_ENV=local
@@ -88,6 +92,10 @@ volumes:
   via_ecommerce_db_data:
     driver: local
   via_ecommerce_redis_data:
+    driver: local
+  via_ecommerce_vendor:
+    driver: local
+  via_ecommerce_views:
     driver: local
 
 networks:

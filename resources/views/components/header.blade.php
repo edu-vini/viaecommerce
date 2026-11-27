@@ -1,3 +1,6 @@
+@php
+    $isElisieHeader = tenant('id') === 'elisie' || tenant('id') === null;
+@endphp
 <header class="sticky top-0 z-30 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-xs"
         x-data="{
             searchQuery: '',
@@ -31,14 +34,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 sm:py-4">
         <div class="flex items-center justify-between gap-4">
 
-            {{-- Brand / Elisie Logo --}}
-            {{-- Brand Logo (Official Elisie Lettering) --}}
+            {{-- Brand / Logo --}}
             <div class="flex items-center">
                 <a href="{{ route('home') }}" class="group flex flex-col items-start">
-                    <img src="{{ asset('images/elisie-logo-bordeaux.png') }}" alt="Elisie" class="h-9 sm:h-11 w-auto object-contain transition-transform duration-300 group-hover:scale-[1.02]">
-                    <span class="text-[8px] sm:text-[9px] tracking-[0.25em] text-stone-500 font-medium uppercase mt-0.5">
-                        Moderna • Elegante • Modesta
-                    </span>
+                    <x-logo class="h-9 sm:h-11 w-auto" />
                 </a>
             </div>
 
@@ -52,7 +51,7 @@
                             x-model="searchQuery"
                             @input.debounce.250ms="fetchSearch()"
                             @focus="if(searchQuery.length >= 2) searchOpen = true"
-                            placeholder="Buscar vestidos midi, alfaiataria, chemises, conjuntos..."
+                            placeholder="{{ $isElisieHeader ? 'Buscar vestidos midi, alfaiataria, chemises, conjuntos...' : 'Buscar produtos, marcas, categorias...' }}"
                             autocomplete="off"
                             class="w-full pl-10 pr-20 py-2.5 text-xs bg-[#FAF8F5] hover:bg-white focus:bg-white border border-stone-300/80 focus:border-brand focus:ring-1 focus:ring-stone-300 transition-all outline-none text-stone-800 placeholder-stone-400"
                         />
@@ -78,7 +77,7 @@
                     {{-- Search Loading Indicator --}}
                     <div x-show="searchLoading" class="p-3 text-center text-xs text-stone-500 flex items-center justify-center gap-2">
                         <svg class="animate-spin h-3.5 w-3.5 text-brand" viewBox="0 0 24 24" fill="none"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path></svg>
-                        Buscando peças na Elisie...
+                        Buscando produtos em {{ $storeSetting->store_name ?? tenant('name') ?? 'nossa loja' }}...
                     </div>
 
                     {{-- Matching Categories --}}
@@ -170,7 +169,7 @@
             <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
                class="hover:text-brand transition text-brand font-bold flex items-center gap-1.5">
                 <span class="w-1.5 h-1.5 bg-brand animate-pulse"></span>
-                Nova Coleção
+                {{ $isElisieHeader ? 'Nova Coleção' : 'Novidades' }}
             </a>
 
             @foreach (\App\Services\EcommerceDataService::getCategories() as $cat)

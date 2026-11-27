@@ -4,41 +4,63 @@
 <div class="space-y-16 pb-20">
 
     {{-- Editorial Hero Section (Elisie Style - Architectural Sharp Edges) --}}
+    @php
+        $isElisieHome = tenant('id') === 'elisie' || tenant('id') === null;
+        $heroImage = $heroBanner['image'] ?? ($isElisieHome ? 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=75' : null);
+    @endphp
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
-        <div class="relative overflow-hidden bg-[#720403] text-white shadow-2xl min-h-[520px] flex items-center">
+        <div class="relative overflow-hidden bg-brand text-white shadow-2xl min-h-[520px] flex items-center">
             {{-- Background Editorial Image --}}
-            <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1200&q=75"
-                 alt="Elisie Moda Feminina"
-                 fetchpriority="high"
-                 decoding="async"
-                 class="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-overlay">
+            @if ($heroImage)
+                <img src="{{ $heroImage }}"
+                     alt="{{ $heroBanner['title'] ?? ($storeSetting->store_name ?? 'Banner Principal') }}"
+                     fetchpriority="high"
+                     decoding="async"
+                     class="absolute inset-0 w-full h-full object-cover object-center opacity-40 mix-blend-overlay">
+            @endif
 
-            <div class="absolute inset-0 bg-gradient-to-r from-[#720403]/95 via-[#720403]/75 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-brand/95 via-brand/75 to-transparent"></div>
 
             <div class="relative z-20 px-6 sm:px-12 lg:px-16 py-16 sm:py-24 max-w-xl">
                 <div class="mb-4">
-                    <img src="{{ asset('images/elisie-logo-white.png') }}" alt="Elisie" class="h-14 sm:h-16 w-auto object-contain">
-                    <span class="text-[10px] tracking-[0.35em] uppercase text-rose-200/90 font-medium block mt-1.5">
-                        Moderna • Elegante • Modesta
-                    </span>
+                    <x-logo variant="white" class="h-14 sm:h-16 w-auto" />
                 </div>
 
-                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.15] text-white mt-4">
-                    A Essência da Mulher Virtuosa e Contemporânea
+                @if(!empty($heroBanner['badge']))
+                    <span class="inline-block px-3 py-1 bg-white/20 backdrop-blur-md text-white text-[10px] font-bold uppercase tracking-widest border border-white/30 mb-2">
+                        {{ $heroBanner['badge'] }}
+                    </span>
+                @endif
+
+                @php
+                    $fallbackHeroTitle = $isElisieHome
+                        ? 'A Essência da Mulher Virtuosa e Contemporânea'
+                        : ('Bem-vindo à ' . ($storeSetting->store_name ?? tenant('name') ?? 'Nossa Loja'));
+                    $fallbackHeroSubtitle = $isElisieHome
+                        ? 'Vestidos midi com caimento nobre, alfaiataria fina e modelagens atemporais desenhadas para exaltar sua beleza com discrição, sofisticação e decência.'
+                        : ($storeSetting->slogan ?? 'Explore nosso catálogo completo com entrega rápida e pagamento seguro.');
+                    $secondaryCtaUrl = $isElisieHome
+                        ? route('catalog.category', ['categorySlug' => 'vestidos-midi'])
+                        : route('catalog.index');
+                    $secondaryCtaLabel = $isElisieHome ? 'Vestidos Midi' : 'Ver Catálogo';
+                @endphp
+
+                <h1 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight leading-[1.15] text-white mt-2">
+                    {{ $heroBanner['title'] ?? $fallbackHeroTitle }}
                 </h1>
 
                 <p class="mt-4 text-xs sm:text-sm text-rose-100/90 font-light leading-relaxed max-w-md">
-                    Vestidos midi com caimento nobre, alfaiataria fina e modelagens atemporais desenhadas para exaltar sua beleza com discrição, sofisticação e decência.
+                    {{ $heroBanner['subtitle'] ?? $fallbackHeroSubtitle }}
                 </p>
 
                 <div class="mt-8 flex flex-wrap items-center gap-4">
-                    <a href="{{ route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
-                       class="px-8 py-3.5 bg-white hover:bg-stone-100 text-[#720403] text-xs font-semibold tracking-widest uppercase transition-all duration-300 shadow-md">
-                        Explorar Lançamentos
+                    <a href="{{ $heroBanner['button_link'] ?? route('catalog.index', ['ordenacao' => 'mais_vendidos']) }}"
+                       class="px-8 py-3.5 bg-white hover:bg-stone-100 text-brand text-xs font-semibold tracking-widest uppercase transition-all duration-300 shadow-md">
+                        {{ $heroBanner['button_text'] ?? 'Explorar Lançamentos' }}
                     </a>
-                    <a href="{{ route('catalog.category', ['categorySlug' => 'vestidos-midi']) }}"
-                       class="px-7 py-3.5 bg-[#720403]/80 hover:bg-[#720403] text-white text-xs font-medium tracking-widest uppercase backdrop-blur-xs transition border border-white/30">
-                        Vestidos Midi
+                    <a href="{{ $secondaryCtaUrl }}"
+                       class="px-7 py-3.5 bg-brand/80 hover:bg-brand text-white text-xs font-medium tracking-widest uppercase backdrop-blur-xs transition border border-white/30">
+                        {{ $secondaryCtaLabel }}
                     </a>
                 </div>
 
@@ -62,6 +84,7 @@
     </section>
 
     {{-- Category Visual Department Grid --}}
+    @if (!empty($categories))
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-10">
             <span class="text-[10px] tracking-[0.3em] font-medium uppercase text-stone-400 block mb-1">Departamentos Selecionados</span>
@@ -90,8 +113,10 @@
             @endforeach
         </div>
     </section>
+    @endif
 
     {{-- Highlight / Nova Coleção Grid --}}
+    @if (!empty($newArrivals))
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row items-baseline justify-between mb-8 pb-4 border-b border-stone-200">
             <div>
@@ -109,40 +134,46 @@
             @endforeach
         </div>
     </section>
+    @endif
 
     {{-- Concept Editorial Split Banner (Brand Philosophy) --}}
+    @if ($isElisieHome || !empty($featuredBanner))
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#FAF8F5] p-8 sm:p-12 border border-stone-200">
             <div class="lg:col-span-7 space-y-4">
                 <div class="flex items-center gap-3">
-                    <img src="{{ asset('images/elisie-logo-bordeaux.png') }}" alt="Elisie" class="h-8 sm:h-9 w-auto object-contain">
+                    <x-logo class="h-8 sm:h-9 w-auto" :tagline="false" />
                     <span class="text-stone-300">|</span>
-                    <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-stone-500">Conceito &amp; Propósito</span>
+                    <span class="text-[10px] tracking-[0.3em] font-semibold uppercase text-stone-500">
+                        {{ $featuredBanner['badge'] ?? 'Conceito & Propósito' }}
+                    </span>
                 </div>
                 <h2 class="font-serif text-3xl sm:text-4xl text-stone-900 leading-tight font-normal">
-                    Moderna. Elegante. Modesta.
+                    {{ $featuredBanner['title'] ?? 'Moderna. Elegante. Modesta.' }}
                 </h2>
                 <p class="text-xs sm:text-sm text-stone-600 font-light leading-relaxed">
-                    A Elisie foi pensada para mulheres que não abrem mão de estarem bem vestidas em qualquer ocasião, unindo recato e bom gosto. Nossas peças priorizam tecidos de altíssima qualidade, forros confortáveis, caimentos impecáveis e modelagens que valorizam a postura e a feminilidade com delicadeza.
+                    {{ $featuredBanner['subtitle'] ?? 'A Elisie foi pensada para mulheres que não abrem mão de estarem bem vestidas em qualquer ocasião, unindo recato e bom gosto. Nossas peças priorizam tecidos de altíssima qualidade, forros confortáveis, caimentos impecáveis e modelagens que valorizam a postura e a feminilidade com delicadeza.' }}
                 </p>
                 <div class="pt-4 flex flex-wrap items-center gap-4">
-                    <a href="{{ route('catalog.category', ['categorySlug' => 'alfaiataria']) }}" class="px-7 py-3 bg-brand hover:bg-brand-hover text-white text-xs font-medium tracking-widest uppercase transition shadow-sm">
-                        Conhecer Alfaiataria &rarr;
+                    <a href="{{ $featuredBanner['button_link'] ?? route('catalog.category', ['categorySlug' => 'alfaiataria']) }}" class="px-7 py-3 bg-brand hover:bg-brand-hover text-white text-xs font-medium tracking-widest uppercase transition shadow-sm">
+                        {{ $featuredBanner['button_text'] ?? 'Conhecer Alfaiataria' }} &rarr;
                     </a>
                     <span class="text-xs text-stone-400 italic">"A verdadeira elegância está na sutileza dos detalhes."</span>
                 </div>
             </div>
             <div class="lg:col-span-5 relative aspect-[4/3] overflow-hidden shadow-lg border border-stone-200">
-                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=75"
-                     alt="Conceito Elisie"
+                <img src="{{ $featuredBanner['image'] ?? 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=800&q=75' }}"
+                     alt="{{ $featuredBanner['title'] ?? 'Conceito Elisie' }}"
                      loading="lazy"
                      decoding="async"
                      class="w-full h-full object-cover">
             </div>
         </div>
     </section>
+    @endif
 
     {{-- Best Sellers (Os Mais Desejados) --}}
+    @if (!empty($bestSellers))
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex flex-col sm:flex-row items-baseline justify-between mb-8 pb-4 border-b border-stone-200">
             <div>
@@ -160,8 +191,10 @@
             @endforeach
         </div>
     </section>
+    @endif
 
     {{-- Instagram Lookbook Showcase --}}
+    @if ($isElisieHome)
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <div class="max-w-md mx-auto mb-8">
             <span class="font-script text-2xl text-brand block">#EuUsoElisie</span>
@@ -188,6 +221,21 @@
             </div>
         </div>
     </section>
+    @endif
+
+    @if (!$isElisieHome && empty($categories) && empty($newArrivals) && empty($bestSellers))
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
+            <div class="bg-white border border-stone-200 p-10 shadow-xs">
+                <h2 class="font-serif text-2xl text-stone-900">Loja pronta para configuração</h2>
+                <p class="text-xs sm:text-sm text-stone-500 mt-2 max-w-md mx-auto">
+                    Esta loja foi criada sem modelo de demonstração. Acesse o Painel Administrativo para cadastrar suas categorias, produtos e banners.
+                </p>
+                <a href="/admin" class="inline-block mt-6 px-6 py-3 bg-brand hover:bg-brand-hover text-white text-xs font-semibold uppercase tracking-widest transition">
+                    Acessar Painel da Loja
+                </a>
+            </div>
+        </section>
+    @endif
 
 </div>
 @endsection

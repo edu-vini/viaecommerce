@@ -25,59 +25,122 @@
         </p>
     </div>
 
+    @php
+        $statusStepMap = [
+            'pending' => 1,
+            'aguardando_pagamento' => 1,
+            'paid' => 2,
+            'pago' => 2,
+            'preparing' => 3,
+            'preparando' => 3,
+            'shipped' => 4,
+            'enviado' => 4,
+            'delivered' => 5,
+            'entregue' => 5,
+            'cancelled' => 0,
+        ];
+        $currentStep = $statusStepMap[$order['status'] ?? 'pending'] ?? 1;
+        $lineWidth = match($currentStep) {
+            1 => '20%',
+            2 => '40%',
+            3 => '60%',
+            4 => '80%',
+            5 => '100%',
+            default => '0%',
+        };
+    @endphp
+
     {{-- Visual Status Timeline (Boutique Style) --}}
     <div class="bg-white p-6 sm:p-8 border border-stone-200/80 shadow-xs mb-8">
-        <h3 class="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-6 text-center sm:text-left">
-            Acompanhamento do seu Pedido
-        </h3>
+        <div class="flex items-center justify-between mb-6">
+            <h3 class="text-[11px] font-bold uppercase tracking-wider text-stone-400">
+                Acompanhamento do seu Pedido
+            </h3>
+            <span class="text-xs font-bold px-3 py-1 uppercase tracking-wider bg-brand text-white">
+                {{ $order['status_label'] ?? ucfirst($order['status']) }}
+            </span>
+        </div>
 
         <div class="grid grid-cols-5 gap-2 relative">
             {{-- Horizontal line --}}
             <div class="hidden sm:block absolute top-5 left-10 right-10 h-0.5 bg-stone-200 -z-0">
-                <div class="h-full bg-brand w-1/5"></div>
+                <div class="h-full bg-brand transition-all duration-500" style="width: {{ $lineWidth }}"></div>
             </div>
 
             {{-- 1. Aguardando Pagamento --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 bg-brand text-white flex items-center justify-center text-xs font-serif font-bold shadow-sm border border-brand">
-                    ✓
+                <div class="w-9 h-9 {{ $currentStep >= 1 ? 'bg-brand text-white border-brand' : 'bg-stone-100 text-stone-400 border-stone-300' }} flex items-center justify-center text-xs font-serif font-bold shadow-sm border">
+                    {{ $currentStep > 1 ? '✓' : '1' }}
                 </div>
                 <span class="text-xs font-bold text-stone-900 mt-2">Aguardando Pix</span>
-                <span class="text-[10px] text-brand font-semibold mt-0.5">Fase Atual</span>
+                <span class="text-[10px] {{ $currentStep === 1 ? 'text-brand font-semibold' : 'text-stone-400' }} mt-0.5">
+                    {{ $currentStep === 1 ? 'Fase Atual' : 'Concluído' }}
+                </span>
             </div>
 
             {{-- 2. Pago --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
-                    2
+                <div class="w-9 h-9 {{ $currentStep >= 2 ? 'bg-brand text-white border-brand' : 'bg-stone-100 text-stone-400 border-stone-300' }} flex items-center justify-center text-xs font-serif font-bold border">
+                    {{ $currentStep > 2 ? '✓' : '2' }}
                 </div>
-                <span class="text-xs font-medium text-stone-500 mt-2">Aprovado</span>
+                <span class="text-xs {{ $currentStep >= 2 ? 'font-bold text-stone-900' : 'font-medium text-stone-500' }} mt-2">Aprovado</span>
+                <span class="text-[10px] {{ $currentStep === 2 ? 'text-brand font-semibold' : 'text-stone-400' }} mt-0.5">
+                    {{ $currentStep === 2 ? 'Fase Atual' : ($currentStep > 2 ? 'Concluído' : 'Pendente') }}
+                </span>
             </div>
 
             {{-- 3. Em Separação --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
-                    3
+                <div class="w-9 h-9 {{ $currentStep >= 3 ? 'bg-brand text-white border-brand' : 'bg-stone-100 text-stone-400 border-stone-300' }} flex items-center justify-center text-xs font-serif font-bold border">
+                    {{ $currentStep > 3 ? '✓' : '3' }}
                 </div>
-                <span class="text-xs font-medium text-stone-500 mt-2">Embalando Peça</span>
+                <span class="text-xs {{ $currentStep >= 3 ? 'font-bold text-stone-900' : 'font-medium text-stone-500' }} mt-2">Separação</span>
+                <span class="text-[10px] {{ $currentStep === 3 ? 'text-brand font-semibold' : 'text-stone-400' }} mt-0.5">
+                    {{ $currentStep === 3 ? 'Fase Atual' : ($currentStep > 3 ? 'Concluído' : 'Pendente') }}
+                </span>
             </div>
 
             {{-- 4. Enviado --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
-                    4
+                <div class="w-9 h-9 {{ $currentStep >= 4 ? 'bg-brand text-white border-brand' : 'bg-stone-100 text-stone-400 border-stone-300' }} flex items-center justify-center text-xs font-serif font-bold border">
+                    {{ $currentStep > 4 ? '✓' : '4' }}
                 </div>
-                <span class="text-xs font-medium text-stone-500 mt-2">Enviado / Rastreio</span>
+                <span class="text-xs {{ $currentStep >= 4 ? 'font-bold text-stone-900' : 'font-medium text-stone-500' }} mt-2">Enviado</span>
+                <span class="text-[10px] {{ $currentStep === 4 ? 'text-brand font-semibold' : 'text-stone-400' }} mt-0.5">
+                    {{ $currentStep === 4 ? 'Fase Atual' : ($currentStep > 4 ? 'Concluído' : 'Pendente') }}
+                </span>
             </div>
 
             {{-- 5. Entregue --}}
             <div class="flex flex-col items-center text-center relative z-10">
-                <div class="w-9 h-9 bg-stone-100 text-stone-400 flex items-center justify-center text-xs font-serif font-bold border border-stone-300">
-                    5
+                <div class="w-9 h-9 {{ $currentStep >= 5 ? 'bg-brand text-white border-brand' : 'bg-stone-100 text-stone-400 border-stone-300' }} flex items-center justify-center text-xs font-serif font-bold border">
+                    {{ $currentStep >= 5 ? '✓' : '5' }}
                 </div>
-                <span class="text-xs font-medium text-stone-500 mt-2">Entregue</span>
+                <span class="text-xs {{ $currentStep >= 5 ? 'font-bold text-stone-900' : 'font-medium text-stone-500' }} mt-2">Entregue</span>
+                <span class="text-[10px] {{ $currentStep === 5 ? 'text-brand font-semibold' : 'text-stone-400' }} mt-0.5">
+                    {{ $currentStep === 5 ? 'Finalizado' : 'Pendente' }}
+                </span>
             </div>
         </div>
+
+        {{-- Merchant Status Notes & Tracking Alert --}}
+        @if (!empty($order['status_notes']) || !empty($order['tracking_code']))
+            <div class="mt-8 p-4 bg-[#FAF8F5] border-l-4 border-brand text-xs text-stone-700">
+                <div class="flex items-center gap-2 font-bold text-stone-900 uppercase tracking-wider mb-1">
+                    <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+                    Mensagem do Lojista ao Comprador {{ !empty($order['status_updated_at']) ? '• Atualizado em ' . $order['status_updated_at'] : '' }}
+                </div>
+                @if (!empty($order['status_notes']))
+                    <p class="leading-relaxed mt-1 text-stone-600">{{ $order['status_notes'] }}</p>
+                @endif
+                @if (!empty($order['tracking_code']))
+                    <div class="mt-2.5 flex items-center gap-2">
+                        <span class="font-bold text-stone-800">Código de Rastreamento Oficial:</span>
+                        <span class="font-mono bg-white px-2.5 py-1 border border-stone-300 text-brand font-bold">{{ $order['tracking_code'] }}</span>
+                    </div>
+                @endif
+            </div>
+        @endif
     </div>
 
     {{-- Pix Payment Box (if Pix selected) --}}

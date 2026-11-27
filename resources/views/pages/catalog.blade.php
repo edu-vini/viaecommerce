@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+@php
+    $isElisieCatalog = tenant('id') === 'elisie' || tenant('id') === null;
+@endphp
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8"
      x-data="{
         mobileFilterOpen: false,
@@ -12,7 +15,7 @@
     <nav class="flex items-center gap-2 text-[11px] text-stone-400 mb-6 uppercase tracking-wider">
         <a href="{{ route('home') }}" class="hover:text-brand transition">Início</a>
         <span>/</span>
-        <a href="{{ route('catalog.index') }}" class="hover:text-brand transition">Coleção</a>
+        <a href="{{ route('catalog.index') }}" class="hover:text-brand transition">{{ $isElisieCatalog ? 'Coleção' : 'Catálogo' }}</a>
         @if ($currentCategoryObj)
             <span>/</span>
             <span class="font-medium text-stone-800">{{ $currentCategoryObj['name'] }}</span>
@@ -26,10 +29,10 @@
     <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-stone-200">
         <div>
             <h1 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 tracking-tight">
-                {{ $currentCategoryObj ? $currentCategoryObj['name'] : ($search ? 'Resultados para "' . $search . '"' : 'Todas as Peças da Coleção') }}
+                {{ $currentCategoryObj ? $currentCategoryObj['name'] : ($search ? 'Resultados para "' . $search . '"' : ($isElisieCatalog ? 'Todas as Peças da Coleção' : 'Todos os Produtos')) }}
             </h1>
             <p class="text-xs text-stone-500 mt-1 font-light">
-                Exibindo <strong class="text-stone-800 font-semibold">{{ $totalCount }}</strong> modelos exclusivos encontrados
+                Exibindo <strong class="text-stone-800 font-semibold">{{ $totalCount }}</strong> {{ $isElisieCatalog ? 'modelos exclusivos encontrados' : 'produtos encontrados' }}
             </p>
         </div>
 
@@ -73,7 +76,7 @@
                 <div class="flex items-center justify-between pb-3 border-b border-stone-100">
                     <h3 class="text-xs font-bold uppercase tracking-wider text-stone-900 flex items-center gap-2">
                         <svg class="w-4 h-4 text-brand" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"/></svg>
-                        <span>Filtrar Coleção</span>
+                        <span>{{ $isElisieCatalog ? 'Filtrar Coleção' : 'Filtrar Produtos' }}</span>
                     </h3>
                     @if ($selectedCategory || $search || $priceMin || $priceMax || $sort !== 'relevancia')
                         <a href="{{ route('catalog.index') }}" class="text-[10px] uppercase font-bold text-rose-600 hover:underline">
@@ -84,12 +87,12 @@
 
                 {{-- Category Filter --}}
                 <div>
-                    <h4 class="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-3">Departamentos</h4>
+                    <h4 class="text-[11px] font-bold uppercase tracking-wider text-stone-400 mb-3">{{ $isElisieCatalog ? 'Departamentos' : 'Categorias' }}</h4>
                     <ul class="space-y-1.5 text-xs">
                         <li>
                             <a href="{{ route('catalog.index', array_filter(['busca' => $search, 'preco_min' => $priceMin, 'preco_max' => $priceMax, 'ordenacao' => $sort])) }}"
                                class="flex items-center justify-between p-2 transition {{ !$selectedCategory ? 'bg-brand text-white font-bold' : 'text-stone-700 hover:bg-[#FAF8F5]' }}">
-                                <span>Todas as Peças</span>
+                                <span>{{ $isElisieCatalog ? 'Todas as Peças' : 'Todos os Produtos' }}</span>
                                 <span class="text-[10px] {{ !$selectedCategory ? 'text-white/80' : 'text-stone-400' }}">Todos</span>
                             </a>
                         </li>
