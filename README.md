@@ -53,30 +53,6 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## Cloudflare Tunnel
-
-O projeto conta com o serviço `tunnel` no Docker Compose utilizando a imagem oficial `cloudflare/cloudflared`.
-
-### 1. Modo Rápido / TryCloudflare (Gratuito e sem configuração)
-Por padrão, ao subir o container do túnel, uma URL pública HTTPS temporária (`*.trycloudflare.com`) é gerada automaticamente apontando para o Nginx (`web:80`).
-
-Para ver a URL pública gerada:
-```bash
-docker logs via-ecommerce-tunnel
-```
-
-### 2. Modo com Token Cloudflare Zero Trust (Domínio Personalizado)
-Caso queira utilizar um túnel fixo configurado na sua conta Cloudflare Zero Trust:
-1. Adicione as variáveis no seu `.env`:
-   ```env
-   CLOUDFLARE_TUNNEL_COMMAND="tunnel --no-autoupdate run"
-   CLOUDFLARE_TUNNEL_TOKEN="seu_token_aqui"
-   ```
-2. Reinicie o serviço de túnel:
-   ```bash
-   docker compose up -d tunnel
-   ```
-
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

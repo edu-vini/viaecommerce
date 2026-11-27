@@ -75,19 +75,6 @@ services:
     networks:
       - via_ecommerce_network
 
-  # Cloudflare Tunnel (HTTPS público gratuito ou via Token Cloudflare Zero Trust)
-  tunnel:
-    image: cloudflare/cloudflared:latest
-    container_name: via-ecommerce-tunnel
-    restart: unless-stopped
-    command: ${CLOUDFLARE_TUNNEL_COMMAND:-tunnel --no-autoupdate --url http://web:80}
-    environment:
-      - TUNNEL_TOKEN=${CLOUDFLARE_TUNNEL_TOKEN:-}
-    networks:
-      - via_ecommerce_network
-    depends_on:
-      - web
-
 volumes:
   via_ecommerce_db_data:
     driver: local
