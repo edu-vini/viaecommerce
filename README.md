@@ -1,58 +1,271 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<div align="center">
+
+# 🛒 ViaEcommerce
+### Plataforma SaaS E-commerce Multi-Tenant & White-Label de Alta Performance
+
+[![PHP](https://img.shields.io/badge/PHP-8.3-777BB4?style=for-the-badge&logo=php&logoColor=white)](https://php.net)
+[![Laravel](https://img.shields.io/badge/Laravel-11%20%7C%2012-FF2D20?style=for-the-badge&logo=laravel&logoColor=white)](https://laravel.com)
+[![Filament](https://img.shields.io/badge/Filament-v3-FDAE4B?style=for-the-badge&logo=filament&logoColor=black)](https://filamentphp.com)
+[![TailwindCSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)](https://tailwindcss.com)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
+[![MySQL](https://img.shields.io/badge/MySQL-8.4-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/)
+[![Redis](https://img.shields.io/badge/Redis-7.0-DC382D?style=for-the-badge&logo=redis&logoColor=white)](https://redis.io/)
+[![License](https://img.shields.io/badge/Licença-MIT-green?style=for-the-badge)](LICENSE)
+
+<br/>
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <b>ViaEcommerce</b> é uma solução completa para comércio eletrônico multi-inquilino (Multi-Tenancy) que permite hospedar e gerenciar múltiplas lojas virtuais independentes em uma infraestrutura centralizada e escalável, com suporte a personalização visual completa (White-Label) e painéis administrativos modernos.
 </p>
 
-## About Laravel
+[Visão Geral](#-visão-geral) •
+[Funcionalidades](#-funcionalidades-principais) •
+[Arquitetura](#-arquitetura-do-ecossistema) •
+[Guia Rápido](#-instalação-e-execução) •
+[Credenciais](#-acessos-e-credenciais-de-teste) •
+[Comandos Úteis](#-comandos-úteis)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+</div>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌟 Visão Geral
 
-## Learning Laravel
+O **ViaEcommerce** foi arquitetado sob o conceito de **Software as a Service (SaaS)** multi-inquilino. O sistema desacopla a administração global das operações individuais de cada lojista:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **SuperAdmin Central**: Gestão operacional de tenants, acompanhamento de assinaturas, controle de status (ativo/pausado) e monitoramento geral da plataforma.
+- **Tenant Admin**: Painel administrativo individual alimentado por **Filament v3**, permitindo que cada lojista gerencie seu catálogo, estoque, variações, pedidos, clientes e customização de layout.
+- **Storefront de Alta Conversão**: Vitrine virtual rápida, responsiva e elegante construída com Blade e Tailwind CSS, otimizada para SEO, busca instantânea e checkout simplificado.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## ✨ Funcionalidades Principais
 
-## Agentic Development
+### 🏢 Multi-Tenancy Inteligente
+- **Isolamento de Dados**: Escopo e contexto definidos por tenant com suporte nativo a subdomínios dinâmicos (ex: `loja1.viasolutions.com.br`) e domínios personalizados.
+- **Ciclo de Vida do Tenant**: Ativação, suspensão e modo de manutenção customizável com tela informativa automática (`tenant-paused`).
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+### 🛡️ Painel SuperAdmin (`/superadmin`)
+- Controle centralizado de todas as empresas e lojistas.
+- Gerenciamento de planos, subdomínios vinculados e dados cadastrais.
+- Dashboard consolidado com métricas de uso da plataforma.
 
-```bash
-composer require laravel/boost --dev
+### ⚙️ Painel do Lojista (`/admin`)
+- **Catálogo & Estoque**: Cadastro de produtos simples e com grade de variações (tamanhos, cores, SKUs e preços).
+- **Categorias & Banners**: Organização do catálogo e publicação de campanhas promocionais.
+- **Gestão de Pedidos**: Fluxo completo de faturamento, tracking de entrega e histórico de atualizações.
+- **CRM de Clientes & LGPD**: Cadastro automático via checkout com registro explícito de consentimento e termos de privacidade (LGPD).
 
-php artisan boost:install
+### 🎨 White-Label & Personalização de Marca
+- Ajuste de identidade visual por loja: upload de logo, favicon e banners.
+- Configuração de paleta de cores primária e secundária.
+- Definição de dados de contato, WhatsApp e links de redes sociais diretamente pelo painel.
+
+### 🛍️ Storefront Moderno & Otimizado
+- **Busca Preditiva**: Sugestões em tempo real via endpoint `/api/busca-preditiva` com debounce.
+- **Mini-Cart Interativo**: Gaveta lateral para adição, alteração de quantidades e remoção ágil de itens.
+- **Cálculo Dinâmico de Frete**: Integração para cálculo instantâneo de frete por CEP (`/api/calcular-frete`).
+- **Checkout Seguro**: Fluxo simplificado com suporte a métodos de pagamento (PIX, Cartão de Crédito e Boleto).
+
+---
+
+## 🏗️ Arquitetura do Ecossistema
+
+```mermaid
+flowchart TD
+    subgraph Central ["🏢 Domínio Central (viasolutions.com.br)"]
+        SA["SuperAdmin Panel (/superadmin)"]
+        TM["Gestão de Tenants & Domínios"]
+        SA --> TM
+    end
+
+    subgraph Middleware ["🔄 Resolução de Inquilino (Tenancy)"]
+        REQ["Requisição HTTP"] --> MID["InitializeStoreTenancy Middleware"]
+        MID -->|Identifica subdomínio ou Host| TENANT_CTX["Contexto do Tenant Ativo"]
+    end
+
+    subgraph StoreInstance ["🏪 Lojas / Inquilinos (*.viasolutions.com.br)"]
+        direction TB
+        STORE["Storefront Público (Home, Catálogo, PDP, Checkout)"]
+        ADMIN["Painel do Lojista Filament (/admin)"]
+        BRAND["Branding & Cores Customizadas"]
+        STORE <--> ADMIN
+        ADMIN --> BRAND
+    end
+
+    TM -. Registra & Monitora .-> StoreInstance
+    TENANT_CTX --> StoreInstance
 ```
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+---
 
-## Contributing
+## 🛠️ Stack Tecnológica
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+| Camada | Tecnologias Utilizadas |
+| :--- | :--- |
+| **Backend** | [PHP 8.3](https://php.net) • [Laravel 11+](https://laravel.com) |
+| **Painéis Administrativos** | [Filament v3](https://filamentphp.com) • [Livewire 3](https://livewire.laravel.com) |
+| **Multi-Tenancy** | [Stancl/Tenancy v3](https://tenancyforlaravel.com) |
+| **Frontend** | [Blade](https://laravel.com/docs/blade) • [Tailwind CSS](https://tailwindcss.com) • [Vite](https://vitejs.dev) |
+| **Banco de Dados** | [MySQL 8.4](https://www.mysql.com) |
+| **Cache, Sessões & Filas** | [Redis 7 Alpine](https://redis.io) |
+| **Servidor Web & Proxy** | [Nginx Alpine](https://nginx.org) |
+| **Containerização** | [Docker](https://www.docker.com) & [Docker Compose](https://docs.docker.com/compose/) |
+| **Qualidade & Testes** | [PHPUnit](https://phpunit.de) • [Laravel Pint](https://laravel.com/docs/pint) |
 
-## Code of Conduct
+---
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+## 🚀 Instalação e Execução
 
-## Security Vulnerabilities
+### Pré-requisitos
+- [Docker](https://www.docker.com/products/docker-desktop/) & [Docker Compose](https://docs.docker.com/compose/install/) instalados
+- [Git](https://git-scm.com/)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/seu-usuario/via-ecommerce.git
+cd via-ecommerce
+```
 
-## License
+### 2. Configuração de Ambiente
+Copie o arquivo de exemplo e ajuste as variáveis se necessário:
+```bash
+cp .env.example .env
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Subir os Containers Docker
+```bash
+docker compose up -d
+```
+
+### 4. Instalar Dependências e Executar Migrações
+Execute o setup automatizado dentro do container da aplicação:
+```bash
+docker compose exec app composer setup
+```
+Ou manualmente em etapas:
+```bash
+docker compose exec app composer install
+docker compose exec app php artisan key:generate
+docker compose exec app php artisan migrate --force
+docker compose exec app php artisan db:seed
+docker compose exec app npm install
+docker compose exec app npm run build
+```
+
+---
+
+## 🔑 Acessos e Credenciais de Teste
+
+Após rodar o comando de seed (`php artisan db:seed`), os seguintes acessos estarão configurados:
+
+| Painel / Módulo | URL Local | E-mail | Senha | Perfil |
+| :--- | :--- | :--- | :--- | :--- |
+| **SuperAdmin** | [`http://localhost:8088/superadmin`](http://localhost:8088/superadmin) | `superadmin@viasolutions.com.br` | `superadmin123` | Administrador Global |
+| **Admin da Loja** | [`http://localhost:8088/admin`](http://localhost:8088/admin) | `admin@elisie.com.br` | `admin123` | Lojista (Elisie Concept) |
+| **Loja Storefront** | [`http://localhost:8088`](http://localhost:8088) | *Público* | *Público* | Cliente / Consumidor |
+
+> [!TIP]
+> **Acesso via Subdomínios**: Para testar a resolução de subdomínios no ambiente local, adicione entradas no seu arquivo `hosts` (ex: `127.0.0.1 elisie.viasolutions.local`) ou utilize serviços com wildcard DNS (ex: `nip.io` ou `lvh.me`).
+
+---
+
+## 💻 Comandos Úteis
+
+<details>
+<summary><b>🧪 Executar Testes Automatizados</b></summary>
+
+```bash
+# Executar todos os testes
+docker compose exec app php artisan test
+
+# Executar suíte de testes com formato compacto
+docker compose exec app php artisan test --compact
+
+# Executar teste específico (ex: MultiTenancy)
+docker compose exec app php artisan test --filter=MultiTenancyAndSuperAdminTest
+```
+</details>
+
+<details>
+<summary><b>🎨 Padronização de Código (Laravel Pint)</b></summary>
+
+```bash
+# Formatar o código seguindo as convenções do projeto
+docker compose exec app vendor/bin/pint --format agent
+```
+</details>
+
+<details>
+<summary><b>⚡ Cache & Otimizações</b></summary>
+
+```bash
+# Limpar caches de configuração, rotas e views
+docker compose exec app php artisan optimize:clear
+
+# Aplicar caches de produção
+docker compose exec app php artisan optimize
+```
+</details>
+
+<details>
+<summary><b>🐳 Gerenciamento dos Containers</b></summary>
+
+```bash
+# Visualizar logs em tempo real
+docker compose logs -f app web
+
+# Reiniciar containers
+docker compose restart
+
+# Parar serviços
+docker compose down
+```
+</details>
+
+---
+
+## 📁 Estrutura do Projeto
+
+```text
+ViaEcommerce/
+├── app/
+│   ├── Filament/                # Recursos e Páginas Administrativas (Filament)
+│   │   ├── Pages/               # Páginas customizadas (ex: ManageBranding)
+│   │   ├── Resources/           # Catálogo, Banners, Pedidos, Clientes, etc.
+│   │   └── SuperAdmin/          # Módulo Central de Gestão de Tenants
+│   ├── Http/
+│   │   ├── Controllers/         # Controladores da vitrine (Cart, Catalog, Checkout, etc.)
+│   │   └── Middleware/          # Resolução e escopo de Tenancy
+│   ├── Models/                  # Modelos Eloquent (Tenant, Product, Order, Customer, etc.)
+│   └── Providers/               # Provedores de Serviço e Painéis Filament
+├── config/                      # Configurações do Laravel e Tenancy
+├── database/
+│   ├── migrations/              # Migrações do banco de dados
+│   └── seeders/                 # Seeders completos com dados de teste
+├── docker/                      # Dockerfiles e configurações Nginx e PHP-FPM
+├── resources/
+│   ├── css/                     # Estilos Tailwind CSS
+│   ├── js/                      # Scripts e componentes de storefront
+│   └── views/                   # Templates Blade (Storefront, Components, Layouts)
+├── routes/
+│   ├── web.php                  # Rotas da vitrine e autenticação
+│   └── console.php              # Comandos artisan customizados
+├── tests/
+│   └── Feature/                 # Testes de integração, CRM, LGPD e MultiTenancy
+├── docker-compose.yml           # Ambiente local de desenvolvimento
+├── docker-compose.prod.yml      # Ambiente preparado para produção
+└── README.md                    # Documentação do projeto
+```
+
+---
+
+## 📄 Licença
+
+Este projeto é distribuído sob a licença **MIT**. Consulte o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+<div align="center">
+  <sub>Construído com excelência pela equipe <b>ViaSolutions</b>.</sub>
+</div>
