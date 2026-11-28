@@ -41,6 +41,10 @@ services:
     volumes:
       - ./:/var/www/html:ro
       - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf:ro
+    labels:
+      caddy: "https://"
+      caddy.tls.on_demand: ""
+      caddy.reverse_proxy: "{{upstreams 80}}"
     depends_on:
       - app
     networks:
@@ -95,4 +99,4 @@ networks:
     driver: bridge
   proxy_network:
     external: true
-    name: ${PROXY_NETWORK:-nginx_proxy}
+    name: ${PROXY_NETWORK:-viasolutions}

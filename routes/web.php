@@ -4,12 +4,15 @@ use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Internal\CaddyController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\InitializeStoreTenancy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+
+Route::get('/internal/caddy/ask', [CaddyController::class, 'ask'])->name('internal.caddy.ask');
 
 Route::middleware([InitializeStoreTenancy::class])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
