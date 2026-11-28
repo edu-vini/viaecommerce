@@ -25,6 +25,15 @@ class InitializeStoreTenancy
     public function handle(Request $request, Closure $next): Response
     {
         $host = $request->getHost();
+
+        if ($host === 'ecommerce.viasolutions.com.br') {
+            if ($this->tenancy->initialized) {
+                $this->tenancy->end();
+            }
+
+            return $next($request);
+        }
+
         $centralDomains = config('tenancy.central_domains', []);
 
         if (in_array($host, $centralDomains, true)) {

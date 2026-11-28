@@ -20,6 +20,7 @@ return [
      * Base domain used for dynamic tenant subdomains (e.g. novaempresa.viasolutions.com.br).
      */
     'base_domain' => env('TENANCY_BASE_DOMAIN', 'viasolutions.com.br'),
+    'fallback_tenant_id' => env('TENANCY_FALLBACK_TENANT_ID', 'elisie'),
 
     /**
      * The list of domains hosting your central app.

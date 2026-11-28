@@ -252,4 +252,27 @@ class MultiTenancyAndSuperAdminTest extends TestCase
         $response->assertSee('Headphone Bluetooth Studio ANC Pro');
         $response->assertDontSee('Vestido Midi Aurora');
     }
+
+    public function test_portal_domain_lists_active_ecommerces_with_preview_and_superadmin_button(): void
+    {
+        $pausedTenant = Tenant::create([
+            'id' => 'pausada',
+            'name' => 'Loja Pausada Teste',
+            'slug' => 'pausada',
+            'email' => 'contato@pausada.com.br',
+            'plan' => 'starter',
+            'status' => 'paused',
+            'is_active' => false,
+        ]);
+        $pausedTenant->domains()->create(['domain' => 'pausada.viasolutions.com.br']);
+
+        $response = $this->get('http://ecommerce.viasolutions.com.br/');
+
+        $response->assertStatus(200);
+        $response->assertSee('Elisie Concept');
+        $response->assertSee('elisie.viasolutions.com.br');
+        $response->assertSee('Acessar SuperAdmin');
+        $response->assertSee('/superadmin');
+        $response->assertDontSee('Loja Pausada Teste');
+    }
 }

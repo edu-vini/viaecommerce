@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index(Request $request): View|RedirectResponse
     {
         if ($request->getHost() === 'ecommerce.viasolutions.com.br') {
-            return redirect('/superadmin');
+            return app(StorePortalController::class)->index($request);
         }
         $categories = EcommerceDataService::getCategories();
         $allProducts = EcommerceDataService::getProducts();
